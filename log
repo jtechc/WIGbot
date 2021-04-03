@@ -776,3 +776,7 @@
 [ERROR] - activies_list is not defined
 [ERROR] - message is not defined
 [ERROR] - Cannot read property 'memberCount' of undefined
+[ERROR] - mesasge is not defined
+[ERROR] - client.emit(...).catch is not a function
+[ERROR] - guildMember.guild.channels.cache.get(...).send is not a function
+[ERROR] - guildMember.guild.channels.cache.get(...).send is not a function

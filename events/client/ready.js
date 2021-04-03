@@ -5,7 +5,7 @@ module.exports = (Discord, client, message) => {
     `${client.readyTimestamp}: Logged in as ${client.user.tag} for ${client.guilds.cache.size}`,
   );
   setInterval(() => {
-    targetGuild = client.guilds.cache.get('process.env.GUILDID');
+    targetGuild = client.guilds.cache.get('824338151312982068');
     if (targetGuild) {
       client.user
         .setPresence({
