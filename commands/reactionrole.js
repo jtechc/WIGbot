@@ -3,7 +3,7 @@ module.exports = {
   description: 'Sets up a reaction role message',
   async execute(client, message, args, Discord) {
     if (message.author.id === process.env.BOTOWNERID) {
-      let channel = '827670235821506570';
+      let channel = 'process.env.REACTIONROLECHANNEL';
       let yellowTeamRole = message.guild.roles.cache.find(
         (role) => role.name === 'reactionrole1',
       );

@@ -1,9 +1,11 @@
 memberCounter = require('../../counters/member-counter');
 
 module.exports = (Discord, client, message) => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(
+    `${client.readyTimestamp}: Logged in as ${client.user.tag} for ${client.guilds.cache.size}`,
+  );
   setInterval(() => {
-    targetGuild = client.guilds.cache.get('824338151312982068');
+    targetGuild = client.guilds.cache.get('process.env.GUILDID');
     if (targetGuild) {
       client.user
         .setPresence({
@@ -13,7 +15,6 @@ module.exports = (Discord, client, message) => {
             type: 'WATCHING',
           },
         })
-        .then(console.log)
         .catch(console.error);
     }
   }, 50000);
