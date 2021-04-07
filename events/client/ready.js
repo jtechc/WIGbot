@@ -9,10 +9,10 @@ module.exports = (Discord, client, message) => {
     if (targetGuild) {
       client.user
         .setPresence({
-          status: 'online',
           activity: {
-            name: `${client.guilds.cache.size} members`,
+            name: 'over ' + targetGuild.memberCount + ' WIG members',
             type: 'WATCHING',
+            status: 'online',
           },
         })
         .catch(console.error);
@@ -21,10 +21,19 @@ module.exports = (Discord, client, message) => {
   memberCounter(client);
 };
 
-// client.user.setPresence({
+//client.user.setPresence({
+//  activity: {
+//    name: 'over ' + targetGuild.memberCount + ' WIG members',
+//    type: 'WATCHING',
+//    status: 'online',
+//  },
+//});
+
+// client.user
+// .setPresence({
+//   status: 'online',
 //   activity: {
-//     name: 'over ' + targetGuild.memberCount + ' WIG members',
+//     name: `${client.guilds.cache.size} members`,
 //     type: 'WATCHING',
-//     status: 'online',
 //   },
-// });
+// })
