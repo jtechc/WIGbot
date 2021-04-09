@@ -781,3 +781,4 @@
 [ERROR] - guildMember.guild.channels.cache.get(...).send is not a function
 [ERROR] - guildMember.guild.channels.cache.get(...).send is not a function
 [ERROR] - uVe2hMRrBy956oh5B3dxVNS1Rh5O3i is not defined
+[ERROR] - Cannot read property 'memberCount' of undefined

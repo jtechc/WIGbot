@@ -5,6 +5,10 @@ module.exports = async (client) => {
     let memberCount = guild.memberCount;
     let channel = guild.channels.cache.get('829192388361584650');
     channel.setName(`Total Members: ${memberCount.toLocaleString()}`);
-    console.log(chalk.blue.bgCyan('Updating Member Count'));
-  }, 60000);
+    console.log(
+      chalk.blue.bgCyan(
+        `Checking if Member Count:(${memberCount.toLocaleString()}) has`,
+      ),
+    );
+  }, 600000);
 };

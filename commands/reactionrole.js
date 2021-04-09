@@ -1,9 +1,10 @@
+require('dotenv').config();
 module.exports = {
   name: 'reactionrole',
   description: 'Sets up a reaction role message',
   async execute(client, message, args, Discord) {
     if (message.author.id === process.env.BOTOWNERID) {
-      let channel = '821250854006423553';
+      let channel = process.env.REACTIONROLECHANNEL;
       let yellowTeamRole = message.guild.roles.cache.find(
         (role) => role.name === 'reactionrole1',
       );

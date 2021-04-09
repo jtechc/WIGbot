@@ -1,7 +1,8 @@
 require('dotenv').config();
 module.exports = (Discord, client, message) => {
   console.log(
-    `${message.author.tag}: (#${message.channel.name}) | ${message.content}`,
+    chalk.greenBright(`${message.author.tag}`) +
+      chalk.italic(`#${message.channel.name}) | ${message.content}`),
   );
   const prefix = process.env.PREFIX;
   if (!message.content.startsWith(prefix) || message.author.bot) return;

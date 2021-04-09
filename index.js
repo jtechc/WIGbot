@@ -37,7 +37,7 @@ http
     if (urlObj.query.code) {
       const accessCode = urlObj.query.code;
       const data = {
-        client_id: '823169791984140289',
+        client_id: 'process.env.CLIENTID',
         client_secret: 'qxLFcVbWEAzWHZRqZXP0KGLqwn2HBu_T',
         grant_type: 'authorization_code',
         redirect_uri: 'http://localhost:53134',

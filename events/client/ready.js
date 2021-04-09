@@ -1,11 +1,12 @@
 memberCounter = require('../../counters/member-counter');
+require('dotenv').config();
 
 module.exports = (Discord, client, message) => {
   console.log(
     `${client.readyTimestamp}: Logged in as ${client.user.tag} for ${client.guilds.cache.size}`,
   );
   setInterval(() => {
-    targetGuild = client.guilds.cache.get('755142481317855293');
+    targetGuild = client.guilds.cache.get('process.env.GUILDID');
     if (targetGuild) {
       client.user
         .setPresence({
