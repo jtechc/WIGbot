@@ -3,10 +3,11 @@ require('dotenv').config();
 
 module.exports = (Discord, client, message) => {
   console.log(
-    `${client.readyTimestamp}: Logged in as ${client.user.tag} for ${client.guilds.cache.size}`,
+    `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
   );
+
   setInterval(() => {
-    targetGuild = client.guilds.cache.get('process.env.GUILDID');
+    targetGuild = client.guilds.cache.get(process.env.GUILDID);
     if (targetGuild) {
       client.user
         .setPresence({

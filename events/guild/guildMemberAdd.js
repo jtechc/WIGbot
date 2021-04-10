@@ -16,7 +16,5 @@ module.exports = (Discord, client, guildMember) => {
     .setFooter(`Member #${guildMember.guild.memberCount}`);
 
   // guildMember.roles.add(welcomeRole);
-  guildMember.guild.channels.cache
-    .get('process.env.GUILDID')
-    .send(welcomeEmbed);
+  guildMember.guild.channels.cache.get('828614468246306816').send(`<@${guildMember.user.id}>`, welcomeEmbed);
 };
