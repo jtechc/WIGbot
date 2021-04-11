@@ -4,6 +4,7 @@ const client = new Discord.Client({
 });
 const fs = require('fs');
 require('dotenv').config();
+const Enmap = require('enmap');
 const http = require('http');
 const url = require('url');
 const port = process.env.PORT;
@@ -14,6 +15,12 @@ client.events = new Discord.Collection();
 
 ['command_handler', 'event_handler'].forEach((handler) => {
   require(`./handlers/${handler}`)(client, Discord);
+});
+
+const myEnmap = new Enmap({
+  name: 'settings',
+  autoFetch: true,
+  fetchAll: false,
 });
 
 const chalk = require('chalk');

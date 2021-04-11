@@ -1,7 +1,9 @@
 const chalk = require('chalk');
+// const { guildid, membercountchanid } = require('./config.json');
+
 module.exports = async (client) => {
   const guild = client.guilds.cache.get('755142481317855293');
-  if(!guild.available) return console.log('No guild found');
+  if (!guild.available) return console.log('No guild found');
   setInterval(() => {
     const memberCount = guild.memberCount;
     const channel = guild.channels.cache.get('829192388361584650');
@@ -9,11 +11,10 @@ module.exports = async (client) => {
     console.log(
       chalk.black.bgCyan(
         `Current member count: ${memberCount} | Checking if we need to update`,
-        )
-      )
-  }, 60000)
+      ),
+    );
+  }, 60000);
 };
-
 
 // let guild = client.guilds.cache.get('828579107830104096');
 // setInterval(() => {
