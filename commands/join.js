@@ -1,5 +1,6 @@
 module.exports = {
   name: 'join',
+  permissions: [],
   description: 'simulate a new member joining',
   execute(client, message, args) {
     if (message.author.id === process.env.BOTOWNERID) {

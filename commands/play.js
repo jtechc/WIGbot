@@ -3,6 +3,8 @@ let ytSearch = require('yt-search');
 
 module.exports = {
   name: 'play',
+  aliases: ["p", "song"],
+  permissions: ["ADMINISTRATOR"],
   description: 'Joins and plays a video from youtube',
   async execute(client, message, args) {
     let voiceChannel = message.member.voice.channel;

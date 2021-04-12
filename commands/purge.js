@@ -1,8 +1,8 @@
 module.exports = {
   name: 'purge',
+  permissions: ["ADMINISTRATOR"],
   description: 'Purge messages',
-  async execute(client, message, args) {
-    if (message.author.id === process.env.BOTOWNERID) {
+  async execute(client, message, cmd, args, Discord) {
       if (!args[0])
         return message.reply(
           'please enter the amount of messages that you want to purge',
@@ -18,8 +18,6 @@ module.exports = {
         .then((messages) => {
           message.channel.bulkDelete(messages);
         });
-    } else {
-      message.channel.send("You don't have the permission to do that.");
-    }
+    
   },
 };

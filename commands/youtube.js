@@ -1,5 +1,6 @@
 module.exports = {
   name: 'youtube',
+  permissions: ["ADMINISTRATOR"],
   description: 'this is a youtube command',
   execute(client, message, args) {
     let role = message.guild.roles.cache.find((r) => r.name === 'moderator');

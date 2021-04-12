@@ -1,6 +1,11 @@
 require('dotenv').config();
 const chalk = require('chalk');
 module.exports = (Discord, client, message) => {
+  console.log(
+    chalk.greenBright(`${message.author.tag} => (#${message.channel.name}):`) + (` ${message.content}`),
+  );
+  
+  
   const prefix = process.env.PREFIX;
   if (!message.content.startsWith(prefix) || message.author.bot) return;
   const args = message.content.slice(prefix.length).split(/ +/);
@@ -8,7 +13,7 @@ module.exports = (Discord, client, message) => {
   const command =
     client.commands.get(cmd) ||
     client.commands.find((a) => a.aliases && a.aliases.includes(cmd));
-  if (command) command.execute(client, message, args, Discord);
+  if (command) command.execute(client, message, cmd, args, Discord);
 
   const validPermissions = [
     "CREATE_INSTANT_INVITE",
@@ -42,34 +47,20 @@ module.exports = (Discord, client, message) => {
     "MANAGE_ROLES",
     "MANAGE_WEBHOOKS",
     "MANAGE_EMOJIS",
-  ]
+  ];
 
-  console.log(
-    chalk.greenBright(`${message.author.tag} => (#${message.channel.name}):`) + (` ${message.content}`),
-  );
-
+  if(command.permissions){
+    let invalidPerms = []
+    for(const perm of command.permissions){
+      if(!validPermissions.includes(perm)){
+        return console.log(chalk.red(`Invalid Permissions: ${perm}`));
+      }
+      if(!message.member.hasPermission(perm)){
+        invalidPerms.push(perm);
+      }
+    }
+    if (invalidPerms.length){
+      return message.channel.send(`Missing Permissions: \`${invalidPerms}\``);
+    }
+  }
 };
-
-
-// client.on('message', (message) => {
-//   if (!message.content.startsWith(prefix) || message.author.bot) return;
-//
-//   const args = message.content.slice(prefix.length).split(/ +/);
-//   const command = args.shift().toLowerCase();
-//
-//   if (command === 'rules') {
-//     client.commands.get('rules').execute(message, args, Discord);
-//   } else if (command === 'purge') {
-//     client.commands.get('purge').execute(message, args);
-//   } else if (command === 'kick') {
-//     client.commands.get('kick').execute(message, args);
-//   } else if (command === 'ban') {
-//     client.commands.get('ban').execute(message, args);
-//   } else if (command === 'reactionrole') {
-//     client.commands.get('reactionrole').execute(message, args, Discord, client);
-//   } else if (command === 'play') {
-//     client.commands.get('play').execute(message, args);
-//   } else if (command === 'leave') {
-//     client.commands.get('leave').execute(message, args);
-//   }
-// });

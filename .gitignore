@@ -9,3 +9,4 @@ log
 ecosystem.config.js
 .gitignore
 data
+pm2-bot.json

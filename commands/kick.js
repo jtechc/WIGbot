@@ -1,5 +1,6 @@
 module.exports = {
   name: 'kick',
+  permissions: [],
   description: 'This command kicks a member of the discord server',
   execute(client, message, args) {
     if (message.author.id === process.env.BOTOWNERID) {

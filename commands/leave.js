@@ -1,5 +1,6 @@
 module.exports = {
   name: 'leave',
+  permissions: ["ADMINISTRATOR"],
   aliases: ['stop', 's'],
   description: 'Stop the current song and leave the channel',
   async execute(client, message, args) {
