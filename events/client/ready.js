@@ -1,10 +1,12 @@
 memberCounter = require('../../counters/member-counter');
+const chalk = require('chalk');
 require('dotenv').config();
+const mongo = require('../../mongo');
 
-module.exports = (Discord, client, message) => {
-  console.log(
+module.exports = async (Discord, client, message) => {
+  console.log(chalk.green(
     `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
-  );
+  ));
 
   setInterval(() => {
     targetGuild = client.guilds.cache.get(process.env.GUILDID);
@@ -21,6 +23,13 @@ module.exports = (Discord, client, message) => {
     }
   }, 50000);
   memberCounter(client);
+
+  await mongo().then(mongoose =>{
+    try{
+      console.log(chalk.green('Connected to mongo!'))
+  } finally {
+    mongoose.connection.close()
+  }})
 };
 
 //client.user.setPresence({
