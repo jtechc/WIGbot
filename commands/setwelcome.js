@@ -3,6 +3,7 @@ const welcomeSchema = require('../schemas/welcome-schema')
 
 module.exports = {
     name: 'setwelcome',
+    category: 'staff',
     aliases: ['setwelcomemessage', 'setjoinmessage' ],
     permissions: ["ADMINISTRATOR"],
     description: 'customize the welcome message',

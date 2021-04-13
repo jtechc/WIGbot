@@ -2,6 +2,7 @@ module.exports = {
   name: 'ban',
   aliases: [''],
   permissions: ['BAN_MEMBERS'],
+  category: 'moderation',
   description: 'The command bans a member of the discord',
   execute(client, message, args) {
     let member = message.mentions.user.first();

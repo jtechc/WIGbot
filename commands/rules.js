@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'rules',
+  category: 'info',
   permissions: ["ADMINISTRATOR"],
   description: 'Embeds!',
   execute(client, message, args){

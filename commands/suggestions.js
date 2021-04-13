@@ -1,5 +1,6 @@
 module.exports = {
   name: 'suggestions',
+  category: 'info',
   aliases: ['suggest', 'suggestion'],
   permissions: [],
   description: 'creates a suggestion!',

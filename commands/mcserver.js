@@ -2,6 +2,7 @@ const util = require('minecraft-server-util');
 
 module.exports = {
     name: 'mcserver',
+    category: 'info',
     aliases: ['mc', 'mccheck', 'minecraft'],
     description: 'get information about the minecraft server',
     execute(client, message, cmd, args, Discord){
