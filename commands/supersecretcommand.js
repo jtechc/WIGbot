@@ -1,13 +1,13 @@
 const { MessageEmbed } = require('discord.js')
 
 module.exports = {
-    commands: ['testalias'],
+    commands: ['testalias', 'ilymessage'],
     category: 'Staff',
     minArgs: 0,
     maxArgs: 0,
     description: 'super secret command meant for only one person to use',
     execute: async ({ message, args, text, client, channel }) => {
-        const authorId = '132631391983632384'
+        const authorId = '368602557649649667'
         if (message.author.id !== authorId) {
             return message.channel.send('This command isn\'t for you!')
         }
