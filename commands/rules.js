@@ -1,10 +1,10 @@
 const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'rules',
-  category: 'info',
+  category: 'Info',
   permissions: ["ADMINISTRATOR"],
   description: 'Embeds!',
-  execute(client, message, args){
+  execute: ({client, message, args}) => {
     const myEmbed = new MessageEmbed()
     .setColor('#1E74BB')
     .setTitle('Rules')

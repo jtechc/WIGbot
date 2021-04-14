@@ -1,6 +1,6 @@
 module.exports = {
   name: 'youtube',
-  category: 'info',
+  category: 'Info',
   permissions: ["ADMINISTRATOR"],
   description: 'this is a youtube command',
   execute(client, message, args) {

@@ -3,8 +3,7 @@ const { MessagedEmbed } = require('discord.js')
 module.exports = {
   minArgs: 0,
   maxArgs: 0,
-  syntaxError: "Incorrect syntax! Use `{PREFIX}ping`",
-  category: 'utility',
+  category: 'Utility',
   description: 'check ping',
   init: (client, intance) => {
     console.log('Initializating...')

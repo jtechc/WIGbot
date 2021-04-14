@@ -9,7 +9,7 @@ module.exports = async (client) => {
     const channel = guild.channels.cache.get('829192388361584650');
     channel.setName(`Total Members: ${memberCount.toLocaleString()}`);
     console.log(
-      chalk.black.bgYellow(
+      chalk.magentaBright(
         `Current member count: ${memberCount} | Checking if we need to update`,
       ),
     );

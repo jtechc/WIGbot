@@ -2,7 +2,7 @@ module.exports = {
   name: 'leave',
   permissions: ["ADMINISTRATOR"],
   aliases: ['stop', 's'],
-  category: 'music',
+  category: 'Music',
   description: 'Stop the current song and leave the channel',
   async execute(client, message, args) {
     let voiceChannel = message.member.voice.channel;

@@ -37,23 +37,37 @@ module.exports = async (Discord, client, message) => {
         emoji: '🎮'
       },
       {
-        name: 'Economy',
+        name: 'Info',
+        emoji: '📝'
+      },
+      {
+        name: 'Moderation',
         emoji: '💸'
       },
       {
         name: 'Configuration',
         emoji: '🚧',
         hidden: true
+      },
+      {
+        name: 'Utility',
+        emoji: '🚿',
+        
+      },
+      {
+        name: 'Staff',
+        emoji: '💫',
+        hidden: true
       }
     ])
 
     wok.on('databaseConnected', (connection, state) => {
-      console.log(chalk.green('The state is', state))
+      console.log(chalk.green('Database status:', state))
     })
 
     wok.on('commandException', (command, message, error) => {
       console.log(chalk.red(`An exception occured when using command "${command.names[0]}"! The error is:`))
-      console.error(error)
+      console.error(chalk.red(error))
     })
   setInterval(() => {
     targetGuild = client.guilds.cache.get(process.env.GUILDID);

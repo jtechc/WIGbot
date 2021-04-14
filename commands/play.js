@@ -4,7 +4,7 @@ let ytSearch = require('yt-search');
 module.exports = {
   name: 'play',
   aliases: ["p", "song"],
-  category: 'music',
+  category: 'Music',
   permissions: ["ADMINISTRATOR"],
   description: 'Joins and plays a video from youtube',
   async execute(client, message, args) {

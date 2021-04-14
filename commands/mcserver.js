@@ -1,11 +1,14 @@
 const util = require('minecraft-server-util');
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     name: 'mcserver',
-    category: 'info',
+    category: 'Info',
+    minArgs: 0,
+    maxArgs: 2,
     aliases: ['mc', 'mccheck', 'minecraft'],
     description: 'get information about the minecraft server',
-    execute(client, message, cmd, args, Discord){
+    execute: ({mesage, args, text, client, prefix, instance, channel}) => {
         if(cmd === 'mcserver'){
 
         if(!args[0]) return message.channel.send('Please enter a minecraft server IP');
@@ -13,7 +16,7 @@ module.exports = {
 
         util.status(args[0], {port: parseInt(args[1])}).then((response) =>{
             // console.log(response);
-            const embed = new Discord.MessageEmbed()
+            const embed = new MessageEmbed()
             .setColor('#1E74BB')
             .setTitle('Mc server status')
             .addFields(

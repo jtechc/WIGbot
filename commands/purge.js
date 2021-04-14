@@ -1,12 +1,12 @@
 module.exports = {
-  category: 'utility',
+  category: 'Utility',
   minArgs: 1,
   maxArgs: 1,
   aliases: ['clear'],
   expectedArgs: "<message amount>",
   permissions: ['ADMINISTRATOR'],
   description: "clear messages in the chat",
-  execute: async ({ messages, args, text, client, prefix, channel }) => {
+  execute: async ({ message, args, text, client, prefix, channel }) => {
     if (!args[0])
       return message.reply(
         'please enter the amount of messages that you want to purge',
