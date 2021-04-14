@@ -1,20 +1,24 @@
-const { MessagedEmbed } = require('discord.js')
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   minArgs: 0,
   maxArgs: 0,
+  cooldown: '15s',
   category: 'Utility',
   description: 'check ping',
-  init: (client, intance) => {
-    console.log('Initializating...')
+  // init: (client, instance) => {
+  //   console.log('Initializating...')
+  // },
+  callback: ({ message, args, text, client }) => {
+    message.reply('```Checking my ping to the server...```').then((resultMessage) => {
+      const latency = resultMessage.createdTimestamp - message.createdTimestamp;
+
+      resultMessage.edit(
+        `\`\`\`Calculated my ping to the server.\nBot latency: ${latency}ms | API: ${client.ws.ping}ms\`\`\``,
+      );
+    });
   },
-  callback: ({ message }) => {
-    message.reply('pong')
-  }
-}
-
-
-
+};
 
 // module.exports = {
 //   category: 'Utility',

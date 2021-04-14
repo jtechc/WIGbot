@@ -3,9 +3,9 @@ module.exports = {
   minArgs: 1,
   maxArgs: 1,
   aliases: ['clear'],
-  expectedArgs: "<message amount>",
+  expectedArgs: '<amount>',
   permissions: ['ADMINISTRATOR'],
-  description: "clear messages in the chat",
+  description: 'Used to clear messages in the chat, max is 100.',
   execute: async ({ message, args, text, client, prefix, channel }) => {
     if (!args[0])
       return message.reply(
@@ -22,12 +22,7 @@ module.exports = {
       .then((messages) => {
         message.channel.bulkDelete(messages);
       });
-  
-},
-
-
-
-
+  },
 
   // name: 'purge',
   // permissions: ["ADMINISTRATOR"],
@@ -48,6 +43,6 @@ module.exports = {
   //       .then((messages) => {
   //         message.channel.bulkDelete(messages);
   //       });
-    
+
   // },
 };

@@ -13,7 +13,7 @@ module.exports = async (client) => {
         `Current member count: ${memberCount} | Checking if we need to update`,
       ),
     );
-  }, 60000);
+  }, 300000);
 };
 
 // let guild = client.guilds.cache.get('828579107830104096');
