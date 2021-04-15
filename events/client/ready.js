@@ -75,7 +75,7 @@ module.exports = async (Discord, client, message) => {
       client.user
         .setPresence({
           activity: {
-            name: 'over ' + targetGuild.memberCount + ' WIG members',
+            name: targetGuild.memberCount + ' WIG members',
             type: 'WATCHING',
             status: 'online',
           },

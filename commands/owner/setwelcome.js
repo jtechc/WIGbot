@@ -1,5 +1,5 @@
-const mongo = require('../mongo');
-const welcomeSchema = require('../schemas/welcome-schema')
+const mongo = require('../../mongo');
+const welcomeSchema = require('../../schemas/welcome-schema')
 
 module.exports = {
     name: 'setwelcome',
