@@ -1,6 +1,7 @@
 require('dotenv').config();
 module.exports = {
   name: 'reactionrole',
+  category: 'Staff',
   permissions: ["ADMINISTRATOR"],
   description: 'Sets up a reaction role message',
   async execute(client, message, args, Discord) {

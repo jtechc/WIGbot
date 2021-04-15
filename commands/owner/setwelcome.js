@@ -1,8 +1,9 @@
-const mongo = require('../mongo');
-const welcomeSchema = require('../schemas/welcome-schema')
+const mongo = require('../../mongo');
+const welcomeSchema = require('../../schemas/welcome-schema')
 
 module.exports = {
     name: 'setwelcome',
+    category: 'Staff',
     aliases: ['setwelcomemessage', 'setjoinmessage' ],
     permissions: ["ADMINISTRATOR"],
     description: 'customize the welcome message',
