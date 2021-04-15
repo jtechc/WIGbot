@@ -1,1 +1,1 @@
-module.exports = class FastTypeGame 
+// module.exports = class FastTypeGame 
