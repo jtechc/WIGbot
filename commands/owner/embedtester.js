@@ -5,7 +5,7 @@ module.exports = new Command ({
   name: 'embedtester',
   aliases: ['testembed', 'embedtest'],
   category: 'Owner',
-  ownerOnly: true,
+  devOnly: true,
   description: 'MessageEmbed visualizer',
   callback: ({ message, args, text, channel }) => {
     const testChannel = '832501191698415646'
