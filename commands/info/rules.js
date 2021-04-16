@@ -1,5 +1,7 @@
 const { MessageEmbed } = require('discord.js');
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'rules',
   category: 'Info',
   permissions: ["ADMINISTRATOR"],
@@ -22,4 +24,4 @@ module.exports = {
            .catch(console.error);
         }
         
-    }
+    })

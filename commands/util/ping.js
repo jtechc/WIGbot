@@ -1,6 +1,8 @@
 const { MessageEmbed } = require('discord.js');
+const { Command } = require("cdcommands");
 
-module.exports = {
+module.exports = new Command ({
+  name: 'ping',
   minArgs: 0,
   maxArgs: 0,
   cooldown: '15s',
@@ -18,7 +20,7 @@ module.exports = {
       );
     });
   },
-};
+});
 
 // module.exports = {
 //   category: 'Utility',

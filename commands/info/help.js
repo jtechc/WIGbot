@@ -1,4 +1,6 @@
-module.exports = {
+const { Command } = require("cdcommands");
+module.exports = new Command({
+  name: 'help',
   category: 'Utility',
   cooldown: '15s',
   description: 'master help command',
@@ -10,4 +12,4 @@ module.exports = {
   //         console.log(command)
   //     })
   // }
-};
+});

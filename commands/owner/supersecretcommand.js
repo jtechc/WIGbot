@@ -1,7 +1,9 @@
 const { MessageEmbed } = require('discord.js')
+const { Command } = require("cdcommands");
 
-module.exports = {
-    commands: ['testalias', 'ilymessage'],
+module.exports = new Command ({
+    name: 'supersecretcommand',
+    aliases: ['testalias', 'ilymessage'],
     category: 'Staff',
     minArgs: 0,
     maxArgs: 0,
@@ -51,4 +53,4 @@ module.exports = {
         message.author.send(embed)
         
     }
-}
+})

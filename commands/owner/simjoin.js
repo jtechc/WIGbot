@@ -1,4 +1,6 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'simjoin',
   permissions: ['ADMINISTRATOR'],
   category: 'Staff',
@@ -10,4 +12,4 @@ module.exports = {
       message.channel.send("You don't have the permission to do that.");
     }
   },
-};
+});

@@ -1,5 +1,7 @@
 const chalk = require('chalk');
-module.exports = (client, instance) => {
+const { Feature } = require('cdcommands');
+
+module.exports = new Feature((client, instance) => {
   client.on('message', (message) => {
     console.log(
       chalk.greenBright(
@@ -7,10 +9,10 @@ module.exports = (client, instance) => {
       ) + ` ${message.content}`,
     );
   });
-};
+});
 
-module.exports.config = {
-  displayName: 'WIGlogger',
-  dbName: 'WIGBOTDB',
-  loadDBFirst: true,
-};
+// module.exports.config = {
+//   displayName: 'WIGlogger',
+//   dbName: 'WIGBOTDB',
+//   loadDBFirst: true,
+// };

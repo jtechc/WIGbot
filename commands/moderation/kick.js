@@ -1,4 +1,6 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'kick',
   permissions: [],
   category: 'Moderation',
@@ -17,4 +19,4 @@ module.exports = {
       message.channel.send("You don't have the permission to do that.");
     }
   },
-};
+});

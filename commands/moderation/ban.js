@@ -1,4 +1,6 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'ban',
   aliases: [''],
   permissions: ['BAN_MEMBERS'],
@@ -15,4 +17,4 @@ module.exports = {
   
   }
 }
-}
+})

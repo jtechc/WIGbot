@@ -1,5 +1,7 @@
 const { MessageEmbed} = require('discord.js')
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'suggestions',
   category: 'Info',
   aliases: ['suggest', 'suggestion'],
@@ -23,4 +25,4 @@ module.exports = {
           throw err;
       });
   }
-}
+})

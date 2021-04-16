@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const WOKCommands = require('wokcommands')
+const { CDCommands } = require('cdcommands');
 const client = new Discord.Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
@@ -10,13 +10,57 @@ const http = require('http');
 const url = require('url');
 const port = process.env.PORT;
 const fetch = require('node-fetch');
+memberCounter = require('./counters/member-counter');
+client.on("ready", () => {
+  console.log(chalk.green(
+    `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
+  ));
+    const disabledDefaultCommands = [
+    // 'help',
+    // 'command',
+    // 'language',
+    // 'prefix',
+    // 'requiredrole'
+  
+    ]
 
-client.commands = new Discord.Collection();
-client.events = new Discord.Collection();
+    new CDCommands(client, {
+      commandsDir: "commands",
+      eventsDir: "events",
+      featuresDir: "features",
+      MessageJSONPath: "message.json",
+      testServers: [],
+      devs: ['132631391983632384'],
+      defaultPrefix: "?",
+      mongoURI: process.env.MONGO_URI,
+      cacheUpdateSpeed: 60000 * 5,
+      disabledDefaultCommands: [],
+      customMessageEvent: false,
+    })
 
-['event_handler'].forEach((handler) => {
-  require(`./handlers/${handler}`)(client, Discord);
-});
+  setInterval(() => {
+    targetGuild = client.guilds.cache.get(process.env.GUILDID);
+    if (targetGuild) {
+      client.user
+        .setPresence({
+          activity: {
+            name: targetGuild.memberCount + ' WIG members',
+            type: 'WATCHING',
+            status: 'online',
+          },
+        })
+        .catch(console.error);
+    }
+  }, 50000);
+  memberCounter(client);
+
+  // await mongo().then(mongoose =>{
+  //   try{
+  //     console.log(chalk.green('Connected to mongo!'))
+  // } finally {
+  //   mongoose.connection.close()
+  // }})
+})
 
 const myEnmap = new Enmap({
   name: 'settings',

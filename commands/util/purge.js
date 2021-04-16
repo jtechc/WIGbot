@@ -1,4 +1,7 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
+  name: 'purge',
   category: 'Utility',
   minArgs: 1,
   maxArgs: 1,
@@ -45,4 +48,4 @@ module.exports = {
   //       });
 
   // },
-};
+});

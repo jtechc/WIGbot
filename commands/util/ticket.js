@@ -1,5 +1,8 @@
-module.exports = {
-    commands: ['ticket', 'support'],
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
+    name: 'ticket',
+    aliases: ['ticket', 'support'],
     category: 'Staff',
     minArgs: 1,
     expectedArgs: '<message>',
@@ -7,4 +10,4 @@ module.exports = {
     execute: ({ message, args, text }) => {
         console.log(text)
     }
-}
+})

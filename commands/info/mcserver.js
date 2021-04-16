@@ -1,7 +1,8 @@
 const util = require('minecraft-server-util');
 const { MessageEmbed } = require('discord.js');
+const { Command } = require("cdcommands");
 
-module.exports = {
+module.exports = new Command ({
   name: 'mcserver',
   category: 'Info',
   minArgs: 0,
@@ -36,4 +37,4 @@ module.exports = {
         throw error;
       });
   },
-};
+})

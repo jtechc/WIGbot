@@ -1,16 +1,32 @@
 const { MessageEmbed } = require('discord.js');
+const { Command } = require("cdcommands");
 
-module.exports = {
-  commands: ['testembed', 'embedtest'],
+module.exports = new Command ({
+  name: 'embedtester',
+  aliases: ['testembed', 'embedtest'],
   category: 'Owner',
   ownerOnly: true,
   description: 'MessageEmbed visualizer',
   callback: ({ message, args, text, channel }) => {
-    const embed = new MessageEmbed();
+    const testChannel = '832501191698415646'
 
-    message.author.send(embed);
+    if (message.channel.id !== testChannel) {
+      return message.channel.send('You can\'t use this command here.')
+    } else {
+    const embed = new MessageEmbed()
+    .setColor('#2A609C')
+    .setTitle('Wicked Immortals Gaming')
+    .setDescription('Valheim mod pack update 04-15-2021\nYou will need to update your personal plugins folder in-order to connect')
+    .setThumbnail('https://i.imgur.com/nGAqI16.png')
+    .setImage('https://i.imgur.com/Ze39T67.png')
+    .setTimestamp();
+
+    message.delete().then(() => {
+    message.channel.send(embed)
+    })}
+
   },
-};
+});
 // .setColor('#0099ff')
 // .setTitle('Some title')
 // .setURL('https://discord.js.org/')

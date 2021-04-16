@@ -1,4 +1,6 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'leave',
   permissions: ["ADMINISTRATOR"],
   aliases: ['stop', 's'],
@@ -14,4 +16,4 @@ module.exports = {
     await voiceChannel.leave();
     await message.channel.send('Leaving channel :smiling_face_with_tear:');
   },
-};
+});
