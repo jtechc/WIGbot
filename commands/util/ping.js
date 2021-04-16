@@ -5,7 +5,7 @@ module.exports = new Command ({
   name: 'ping',
   minArgs: 0,
   maxArgs: 0,
-  cooldown: '15s',
+  cooldown: 15000,
   category: 'Utility',
   description: 'check ping',
   // init: (client, instance) => {
