@@ -2,10 +2,10 @@ const { Command } = require("cdcommands");
 
 module.exports = new Command ({
   name: 'kick',
-  permissions: [],
+  userPermissions: ['KICK_MEMBERS'],
   category: 'Moderation',
   description: 'This command kicks a member of the discord server',
-  execute(client, message, args) {
+  run: ({ message, args, client, prefix, language })=> {
     if (message.author.id === process.env.BOTOWNERID) {
       let member = message.mentions.users.find();
       if (member) {

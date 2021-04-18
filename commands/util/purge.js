@@ -7,7 +7,7 @@ module.exports = new Command ({
   maxArgs: 1,
   aliases: ['clear'],
   expectedArgs: '<amount>',
-  permissions: ['ADMINISTRATOR'],
+  userPermissions: ['ADMINISTRATOR'],
   description: 'Used to clear messages in the chat, max is 100.',
   run: async ({ message, args, client, prefix, language }) => {
     if (!args[0])

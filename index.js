@@ -10,20 +10,11 @@ const http = require('http');
 const url = require('url');
 const port = process.env.PORT;
 const fetch = require('node-fetch');
-memberCounter = require('./counters/member-counter');
+memberCounter = require('./features/member-counter');
 client.on("ready", () => {
   console.log(chalk.green(
     `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
   ));
-    const disabledDefaultCommands = [
-    // 'help',
-    // 'command',
-    // 'language',
-    // 'prefix',
-    // 'requiredrole'
-  
-    ]
-
     new CDCommands(client, {
       commandsDir: "commands",
       eventsDir: "events",
@@ -31,10 +22,10 @@ client.on("ready", () => {
       MessageJSONPath: "message.json",
       testServers: [],
       devs: ['132631391983632384'],
-      defaultPrefix: "?",
+      defaultPrefix: process.env.PREFIX,
       mongoURI: process.env.MONGO_URI,
       cacheUpdateSpeed: 60000 * 5,
-      disabledDefaultCommands: [],
+      disabledDefaultCommands: ['help'],
       customMessageEvent: false,
     })
 
@@ -52,7 +43,6 @@ client.on("ready", () => {
         .catch(console.error);
     }
   }, 50000);
-  memberCounter(client);
 
   // await mongo().then(mongoose =>{
   //   try{

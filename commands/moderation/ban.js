@@ -3,10 +3,10 @@ const { Command } = require("cdcommands");
 module.exports = new Command ({
   name: 'ban',
   aliases: [''],
-  permissions: ['BAN_MEMBERS'],
+  userPermissions: ['BAN_MEMBERS'],
   category: 'Moderation',
   description: 'The command bans a member of the discord',
-  execute: ({ message, args, client }) => {
+  run: ({ message, args, client, prefix, language }) => {
   let member = message.mentions.user.first()
   if (member) {
     let memberTarget = message.guild.members.cache.get(member.id)

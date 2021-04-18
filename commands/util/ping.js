@@ -11,7 +11,7 @@ module.exports = new Command ({
   // init: (client, instance) => {
   //   console.log('Initializating...')
   // },
-  callback: ({ message, args, text, client }) => {
+  run: ({ message, args, client, prefix, language }) => {
     message.reply('```Checking my ping to the server...```').then((resultMessage) => {
       const latency = resultMessage.createdTimestamp - message.createdTimestamp;
 

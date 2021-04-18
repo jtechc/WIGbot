@@ -4,7 +4,7 @@ module.exports = new Command({
   category: 'Utility',
   cooldown: '15s',
   description: 'master help command',
-  callback: ({message, text, client, channel }) => {
+  run: ({ message, args, client, prefix, language }) => {
     message.reply('\`\`\`There\'s no help command, good luck.\`\`\`')
   }
   // callback: ({ message, args, text, client, prefix, instance, channel, interaction }) => {

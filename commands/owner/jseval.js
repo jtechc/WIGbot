@@ -8,7 +8,7 @@ module.exports = new Command ({
   category: 'Owner',
   aliases: ['eval', 'evaluate'],
   description: 'evaluates Javascript code represented as a string.',
-  callback: ({ message, args, text, client, prefix, instance, channel }) => {
+  run: ({ message, args, client, prefix, language }) => {
     const { member, content } = message;
 
     if (message.author.id === process.env.BOTOWNERID) {

@@ -6,9 +6,9 @@ module.exports = new Command ({
   name: 'play',
   aliases: ["p", "song"],
   category: 'Music',
-  permissions: ["ADMINISTRATOR"],
+  userPermissions: ["ADMINISTRATOR"],
   description: 'Joins and plays a video from youtube',
-  async execute(client, message, args) {
+  run: async ({ message, args, client, prefix, language }) => {
     let voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
       return message.channel.send(

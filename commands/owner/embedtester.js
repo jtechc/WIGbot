@@ -7,7 +7,7 @@ module.exports = new Command ({
   category: 'Owner',
   devOnly: true,
   description: 'MessageEmbed visualizer',
-  callback: ({ message, args, text, channel }) => {
+  run: ({ message, args, client, prefix, language }) => {
     const testChannel = '832501191698415646'
 
     if (message.channel.id !== testChannel) {

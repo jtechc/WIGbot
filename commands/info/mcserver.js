@@ -9,7 +9,7 @@ module.exports = new Command ({
   maxArgs: 2,
   aliases: ['mc', 'mccheck', 'minecraft'],
   description: 'get information about the minecraft server',
-  execute: ({ message, args, text, client, prefix, instance, channel }) => {
+  run: ({ message, args, client, prefix, language }) => {
     if (!args[0])
       return message.channel.send('Please enter a minecraft server IP');
     if (!args[1])
