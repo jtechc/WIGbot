@@ -12,3 +12,5 @@ data
 pm2-bot.json
 .env.defaults
 .env.id
+mongo.js
+settings.js
