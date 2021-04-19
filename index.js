@@ -1,6 +1,6 @@
-const Discord = require('discord.js');
+const { Client } = require('discord.js');
 const { CDCommands } = require('cdcommands');
-const client = new Discord.Client({
+const client = new Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
 const fs = require('fs');
