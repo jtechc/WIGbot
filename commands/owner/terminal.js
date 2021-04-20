@@ -1,7 +1,7 @@
 const { Command, Validator } = require('cdcommands');
 const process = require('child_process');
 const chalk = require('chalk');
-const { stdout } = require('node:process');
+
 module.exports = new Command({
     name: 'terminal',
     aliases: ['console', 'shell'],
@@ -24,7 +24,7 @@ module.exports = new Command({
         }
     }),
     run: async ({ message, args, client, prefix, language }) => {
-        if(message.author.id === 'OWNER_ID') {
+        if(message.author.id === '132631391983632384') {
             const msg = await message.channel.send(`Please wait, this may take a while`);
             msg.delete({timeout: 4000})
             process.exec(args.join(" ") , (error, stdout) => { let result = (stdout || error);
