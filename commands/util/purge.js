@@ -1,12 +1,15 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
+  name: 'purge',
   category: 'Utility',
   minArgs: 1,
   maxArgs: 1,
   aliases: ['clear'],
   expectedArgs: '<amount>',
-  permissions: ['ADMINISTRATOR'],
+  userPermissions: ['ADMINISTRATOR'],
   description: 'Used to clear messages in the chat, max is 100.',
-  execute: async ({ message, args, text, client, prefix, channel }) => {
+  run: async ({ message, args, client, prefix, language }) => {
     if (!args[0])
       return message.reply(
         'please enter the amount of messages that you want to purge',
@@ -45,4 +48,4 @@ module.exports = {
   //       });
 
   // },
-};
+});

@@ -1,14 +1,15 @@
 const util = require('minecraft-server-util');
 const { MessageEmbed } = require('discord.js');
+const { Command } = require("cdcommands");
 
-module.exports = {
+module.exports = new Command ({
   name: 'mcserver',
   category: 'Info',
   minArgs: 0,
   maxArgs: 2,
   aliases: ['mc', 'mccheck', 'minecraft'],
   description: 'get information about the minecraft server',
-  execute: ({ message, args, text, client, prefix, instance, channel }) => {
+  run: ({ message, args, client, prefix, language }) => {
     if (!args[0])
       return message.channel.send('Please enter a minecraft server IP');
     if (!args[1])
@@ -36,4 +37,4 @@ module.exports = {
         throw error;
       });
   },
-};
+})

@@ -1,5 +1,0 @@
-require('dotenv').config();
-const chalk = require('chalk');
-module.exports = (Discord, client, message) => {
-  
-};

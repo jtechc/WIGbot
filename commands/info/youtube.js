@@ -1,9 +1,12 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'youtube',
   category: 'Info',
-  permissions: ["ADMINISTRATOR"],
+  userPermissions: ["ADMINISTRATOR"],
   description: 'this is a youtube command',
-  execute(client, message, args) {
+  run: ({ message, args, client, prefix, language }) => {
+    
     let role = message.guild.roles.cache.find((r) => r.name === 'moderator');
 
     if (message.member.permissions.has('KICK_MEMBERS')) {
@@ -20,4 +23,6 @@ module.exports = {
     //   message.member.roles.add(role).catch(console.error);
     // }
   },
-};
+
+});
+

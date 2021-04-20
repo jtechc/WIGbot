@@ -1,13 +1,14 @@
 const mongo = require('../../mongo');
 const welcomeSchema = require('../../schemas/welcome-schema')
+const { Command } = require("cdcommands");
 
-module.exports = {
+module.exports = new Command ({
     name: 'setwelcome',
     category: 'Staff',
     aliases: ['setwelcomemessage', 'setjoinmessage' ],
-    permissions: ["ADMINISTRATOR"],
+    userPermissions: ["ADMINISTRATOR"],
     description: 'customize the welcome message',
-    async execute(client, message, cmd, args, Discord) {
+    run: async ({ message, args, client, prefix, language }) => {
         const { member, channel, content } = message;
 
         if (!member.hasPermissions('ADMINISTRATOR')) {
@@ -43,4 +44,4 @@ module.exports = {
             }
         })
     }
-}
+})

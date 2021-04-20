@@ -1,10 +1,12 @@
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'leave',
-  permissions: ["ADMINISTRATOR"],
+  userPermissions: ["ADMINISTRATOR"],
   aliases: ['stop', 's'],
   category: 'Music',
   description: 'Stop the current song and leave the channel',
-  async execute(client, message, args) {
+  run: async ({ message, args, client, prefix, language }) => {
     let voiceChannel = message.member.voice.channel;
 
     if (!voiceChannel)
@@ -14,4 +16,4 @@ module.exports = {
     await voiceChannel.leave();
     await message.channel.send('Leaving channel :smiling_face_with_tear:');
   },
-};
+});

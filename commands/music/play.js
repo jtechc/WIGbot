@@ -1,13 +1,14 @@
 let ytdl = require('ytdl-core');
 let ytSearch = require('yt-search');
+const { Command } = require("cdcommands");
 
-module.exports = {
+module.exports = new Command ({
   name: 'play',
   aliases: ["p", "song"],
   category: 'Music',
-  permissions: ["ADMINISTRATOR"],
+  userPermissions: ["ADMINISTRATOR"],
   description: 'Joins and plays a video from youtube',
-  async execute(client, message, args) {
+  run: async ({ message, args, client, prefix, language }) => {
     let voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
       return message.channel.send(
@@ -58,7 +59,7 @@ module.exports = {
 
       await message.reply(`:thumbsup: Now Playing *** ${video.title}***`);
     } else {
-      message.channel.send('No video results found');
+      message.channel.send('No   video results found');
     }
   },
-};
+});

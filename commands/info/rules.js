@@ -1,10 +1,12 @@
 const { MessageEmbed } = require('discord.js');
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'rules',
   category: 'Info',
-  permissions: ["ADMINISTRATOR"],
+  userPermissions: ["ADMINISTRATOR"],
   description: 'Embeds!',
-  execute: ({client, message, args}) => {
+  run: ({ message, args, client, prefix, language }) => {
     const myEmbed = new MessageEmbed()
     .setColor('#1E74BB')
     .setTitle('Rules')
@@ -22,4 +24,4 @@ module.exports = {
            .catch(console.error);
         }
         
-    }
+    })

@@ -1,11 +1,14 @@
 const { MessageEmbed} = require('discord.js')
-module.exports = {
+const { Command } = require("cdcommands");
+
+module.exports = new Command ({
   name: 'suggestions',
   category: 'Info',
+  guildOnly: true,
   aliases: ['suggest', 'suggestion'],
-  permissions: [],
+  userPermissions: [],
   description: 'creates a suggestion!',
-  execute: ({client, message, cmd, args}) => {
+  run: ({ message, args, client, prefix, language }) => {
       const channel = message.client.channels.cache.find(c => c.name === '〔💡〕suggestions');
       if (!channel) return message.channel.send('I cannot seem to find the suggestions channel!');
 
@@ -23,4 +26,4 @@ module.exports = {
           throw err;
       });
   }
-}
+})

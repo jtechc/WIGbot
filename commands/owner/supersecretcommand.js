@@ -1,15 +1,17 @@
 const { MessageEmbed } = require('discord.js')
+const { Command } = require("cdcommands");
 
-module.exports = {
-    commands: ['testalias', 'ilymessage'],
+module.exports = new Command ({
+    name: 'supersecretcommand',
+    aliases: ['testalias', 'ilysm'],
     category: 'Staff',
     minArgs: 0,
     maxArgs: 0,
     description: 'super secret command meant for only one person to use',
-    execute: async ({ message, args, text, client, channel }) => {
+    run: async ({ message, args, client, prefix, language }) => {
         const authorId = '368602557649649667'
         if (message.author.id !== authorId) {
-            return message.channel.send('This command isn\'t for you!')
+            return message.channel.send('Is your name Fate? Or Chelsi? I didn\'t think so. This command isn\'t for you!')
         }
         const emojiReactionBackward = '💖'
         const emojiReactionForward = '💕'
@@ -26,7 +28,7 @@ module.exports = {
             { name: 'I\'m sorry, even if it doesn\'t mean much', value: 'but I am working on being less of a shit head.'},
             { name: '\u200B', value: '\u200B' },
             { name: 'I love you', value: 'more than I think you know.', inline: true },
-            { name: 'Placeholder', value: 'Placeholder', inline: true },
+            { name: 'I wish you could see', value: 'what you actually mean to me.', inline: true },
         )
         .addField('Placeholder', 'Placeholder', true)
         .setTimestamp()
@@ -51,4 +53,4 @@ module.exports = {
         message.author.send(embed)
         
     }
-}
+})
