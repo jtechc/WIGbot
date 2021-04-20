@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 const { Command } = require("cdcommands");
 
 module.exports = new Command ({
@@ -8,6 +9,9 @@ module.exports = new Command ({
   userPermissions: ["ADMINISTRATOR"],
   description: 'Sets up a reaction role message',
   run: async ({ message, args, client, prefix, language }) => {
+
+
+
     if (message.author.id === process.env.BOTOWNERID) {
       let channel = process.env.REACTIONROLECHANNEL;
       let yellowTeamRole = message.guild.roles.cache.find(
@@ -79,3 +83,5 @@ module.exports = new Command ({
     }
   },
 });
+
+

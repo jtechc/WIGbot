@@ -6,6 +6,7 @@ module.exports = new Command ({
   userPermissions: ["ADMINISTRATOR"],
   description: 'this is a youtube command',
   run: ({ message, args, client, prefix, language }) => {
+    
     let role = message.guild.roles.cache.find((r) => r.name === 'moderator');
 
     if (message.member.permissions.has('KICK_MEMBERS')) {
@@ -22,4 +23,6 @@ module.exports = new Command ({
     //   message.member.roles.add(role).catch(console.error);
     // }
   },
+
 });
+
