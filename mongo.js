@@ -8,3 +8,5 @@ module.exports = async () => {
     })
     return mongoose
 }
+
+/** You don't need this file. */

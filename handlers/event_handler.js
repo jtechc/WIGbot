@@ -1,6 +1,6 @@
 // const fs = require('fs');
 
-// module.exports = (client, Discord) => {
+// module.exports = (client, Discord) => { What? You use CDCommands, this is not needed.
 //   const load_dir = (dirs) => {
 //     const event_files = fs
 //       .readdirSync(`./events/${dirs}`)

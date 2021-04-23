@@ -4,10 +4,15 @@ const { Command } = require("cdcommands");
 module.exports = new Command ({
   name: 'embedtester',
   aliases: ['testembed', 'embedtest'],
-  category: 'Owner',
-  devOnly: true,
   description: 'MessageEmbed visualizer',
-  run: ({ message, args, client, prefix, language }) => {
+  details: 'MessageEmbed visualizer',
+  minArgs: 0,
+  maxArgs: Infinity,
+  usage: '{prefix}embedtester',
+  devOnly: true,
+  noDisable: true,
+  category: 'Owner',
+  run: ({ message }) => {
     const testChannel = '832501191698415646'
 
     if (message.channel.id !== testChannel) {
@@ -21,7 +26,7 @@ module.exports = new Command ({
     .setImage('https://i.imgur.com/Ze39T67.png')
     .setTimestamp();
 
-    message.delete().then(() => {
+    message.delete().then(() => { // .then :peepoSad:
     message.channel.send(embed)
     })}
 

@@ -4,12 +4,15 @@ const { Command } = require("cdcommands");
 
 module.exports = new Command ({
   name: 'mcserver',
-  category: 'Info',
+  aliases: ['mc', 'mccheck', 'minecraft'],
+  description: 'Get\'s information on a Minecraft server',
+  details: 'Get\'s information on a Minecraft server',
   minArgs: 0,
   maxArgs: 2,
-  aliases: ['mc', 'mccheck', 'minecraft'],
-  description: 'get information about the minecraft server',
-  run: ({ message, args, client, prefix, language }) => {
+  usage: '{prefix}mcserver <Server IP> <Server Ports>',
+  noDisable: false,
+  category: 'Info',
+  run: ({ message, args, client }) => {
     if (!args[0])
       return message.channel.send('Please enter a minecraft server IP');
     if (!args[1])
@@ -34,7 +37,7 @@ module.exports = new Command ({
       })
       .catch((error) => {
         message.channel.send('there was an error finding this server');
-        throw error;
+        client.logError({ data: error });
       });
   },
 })

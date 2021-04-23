@@ -4,10 +4,13 @@ const { Command } = require("cdcommands");
 module.exports = new Command ({
     name: 'supersecretcommand',
     aliases: ['testalias', 'ilysm'],
-    category: 'Staff',
+    description: 'super secret command meant for only one person to use',
+    details: 'super secret command meant for only one person to use',
     minArgs: 0,
     maxArgs: 0,
-    description: 'super secret command meant for only one person to use',
+    usage: '{prefix}supersecretcommand',
+    noDisable: false,
+    category: 'Staff',
     run: async ({ message, args, client, prefix, language }) => {
         const authorId = '368602557649649667'
         if (message.author.id !== authorId) {
@@ -45,12 +48,18 @@ module.exports = new Command ({
                 
         //     }
         // })
+
+        /* I don't see the point in this? You are wanting to send it to the person twice? 
+        Why wouldn't you just do
+        message.delete().catch(console.error); or something? There is no need for the if else statement.
         if (message.guild === null) {
             return
         } else {
             message.delete()
         }
         message.author.send(embed)
+        */
+        
         
     }
 })

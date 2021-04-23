@@ -1,16 +1,17 @@
 const { Command, Validator } = require('cdcommands');
 const process = require('child_process');
-const chalk = require('chalk');
+const chalk = require('chalk'); // Ew, just use CDColours - npm i cdcolours
 
 module.exports = new Command({
     name: 'terminal',
     aliases: ['console', 'shell'],
-    category: 'Owner',
     description: 'Use a terminal in discord chat!',
+    details: 'Use a terminal in discord chat!',
     minArgs: 1,
     maxArgs: Infinity,
     usage: '{prefix} <command to run>',
     devOnly: true,
+    noDisable: false,
     valdiate: new Validator({
         validate: ({ message, args, client, prefix, language }) => {
             if (args[0] !== 'send') return "INCORRECT_ARGS";
@@ -23,6 +24,7 @@ module.exports = new Command({
             console.log(chalk.blue('Succesfully ran terminal command.'))
         }
     }),
+    category: 'Owner',
     run: async ({ message, args, client, prefix, language }) => {
         if(message.author.id === '132631391983632384') {
             const msg = await message.channel.send(`Please wait, this may take a while`);
@@ -31,7 +33,7 @@ module.exports = new Command({
             message.channel.send(result, { code: "asciidoc", split: "\n"}).catch(err => message.channel.send(err))
         })
         } else {
-            return message.reply(`Developers Only!`);
+            return message.reply(`Developers Only!`); // Again, you have devOnly: true, so why would you add an if else statment?. 
         }
 
     }
