@@ -12,7 +12,7 @@ module.exports = new Event("guildMemberAdd", (client, message) => {
   .setTitle('Welcome to WIG!')
   .setURL('https://www.wickedimmortalsgaming.com')
   .setDescription(
-    `Welcome, <@${message.user.id}>, to ${message.guild.name}!\n\nPlease head to <#${rolesChannel} to pick your roles!`,
+    `Welcome, <@${message.user.id}>, to ${message.guild.name}!\n\nPlease head to <#${rolesChannel}> to pick your roles!`,
   )
   .setThumbnail('https://i.imgur.com/I9gPKnJ.png')
   .setTimestamp();
