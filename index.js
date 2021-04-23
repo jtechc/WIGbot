@@ -29,21 +29,24 @@ client.on("ready", () => {
       customMessageEvent: false,
     })
 
-  setInterval(() => {
-    targetGuild = client.guilds.cache.get(process.env.GUILDID);
-    if (targetGuild) {
-      client.user
-        .setPresence({
-          activity: {
-            name: targetGuild.memberCount + ' WIG members',
-            type: 'WATCHING',
-            status: 'online',
-          },
-        })
-        .catch(console.error);
+    const targetGuild = client.guilds.cache.get('755142481317855293');
+    if (targetGuild.available) {
+      console.log(('[GUILD FOUND]'.blue) + ` ${targetGuild.name}`);
     }
-  }, 50000);
-
+    const memberCount = targetGuild.memberCount;
+    let activities = [
+    { type: 'WATCHING', status: `${targetGuild.memberCount} WIG members!` },
+    { type: 'PLAYING', status: `for ${targetGuild.name}`}
+    ], i = 0
+  
+    client.user.setActivity('the loading screen', { type: 'WATCHING' })
+  
+    setInterval(() => {
+      const current = activities[i++ % activities.length]
+      const { type, status } = current
+      client.user.setActivity(status, { type })
+    }, 30 * 1000)
+  
   // await mongo().then(mongoose =>{
   //   try{
   //     console.log(chalk.green('Connected to mongo!'))
