@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const reqString = {
+const reqString = { // You watched WOK to do this.
     type: String,
     required: true
 }
 
-const welcomeSchema = mongoose.Schema({
+const welcomeSchema = new Schema({
     _id: reqString,
     channelId: reqString,
     text: reqString
 })
 
-module.exports = mongoose.model('welcome-channels', welcomeSchema)
+module.exports = model('welcome-channels', welcomeSchema);

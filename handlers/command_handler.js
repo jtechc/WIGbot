@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = (client, Discord) => {
+module.exports = (client, Discord) => { // What? You use CDCommands, this is not needed.
   const command_files = fs
     .readdirSync('./commands/')
     .filter((file) => file.endsWith('.js'));
