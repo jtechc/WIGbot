@@ -2,10 +2,15 @@ const { Command } = require("cdcommands");
 
 module.exports = new Command ({
   name: 'youtube',
-  category: 'Info',
-  userPermissions: ["ADMINISTRATOR"],
   description: 'this is a youtube command',
-  run: ({ message, args, client, prefix, language }) => {
+  details: 'this is a youtube command',
+  minArgs: 0,
+  maxArgs: Infinity,
+  usage: '{prefix}youtube',
+  noDisable: false,
+  userPermissions: ["ADMINISTRATOR"],
+  category: 'Info',
+  run: ({ message }) => {
     
     let role = message.guild.roles.cache.find((r) => r.name === 'moderator');
 

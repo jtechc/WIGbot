@@ -2,18 +2,21 @@ const { Command } = require("cdcommands");
 
 module.exports = new Command ({
   name: 'leave',
-  userPermissions: ["ADMINISTRATOR"],
   aliases: ['stop', 's'],
+  description: 'Stop\'s the current song and leave the channel',
+  details: 'Stop\'s the current song and leaves the channel',
+  minArgs: 0,
+  maxArgs: Infinity,
+  usage: '{prefix}leave',
+  noDisable: false,
+  userPermissions: ["ADMINISTRATOR"],
   category: 'Music',
-  description: 'Stop the current song and leave the channel',
-  run: async ({ message, args, client, prefix, language }) => {
-    let voiceChannel = message.member.voice.channel;
-
-    if (!voiceChannel)
-      return message.channel.send(
-        'You need to be in a voice channel to stop the music!',
-      );
-    await voiceChannel.leave();
-    await message.channel.send('Leaving channel :smiling_face_with_tear:');
+  run: async ({ message }) => {
+    const channel = message.member.voice.channel;
+    if (!channel)
+      return message.channel.send('You need to be in a voice channel to stop the music!');
+    
+    channel.leave();
+    message.channel.send('Leaving channel :smiling_face_with_tear:');
   },
 });

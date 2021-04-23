@@ -5,10 +5,15 @@ const { Command } = require("cdcommands");
 module.exports = new Command ({
   name: 'play',
   aliases: ["p", "song"],
-  category: 'Music',
-  userPermissions: ["ADMINISTRATOR"],
   description: 'Joins and plays a video from youtube',
-  run: async ({ message, args, client, prefix, language }) => {
+  details: 'Joins and plays a video from youtube',
+  minArgs: 1,
+  maxArgs: Infinity,
+  usage: '{prefix}play <Song URL>',
+  noDisable: false,
+  userPermissions: ["ADMINISTRATOR"],
+  category: 'Music',
+  run: async ({ message, args }) => {
     let voiceChannel = message.member.voice.channel;
     if (!voiceChannel)
       return message.channel.send(
