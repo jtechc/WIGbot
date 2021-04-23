@@ -1,5 +1,9 @@
-const { Client } = require('discord.js');
-const { CDCommands } = require('cdcommands');
+const {
+  Client
+} = require('discord.js');
+const {
+  CDCommands
+} = require('cdcommands');
 const client = new Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
@@ -15,38 +19,51 @@ client.on("ready", () => {
   console.log(chalk.green(
     `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
   ));
-    new CDCommands(client, {
-      commandsDir: "commands",
-      eventsDir: "events",
-      featuresDir: "features",
-      MessageJSONPath: "message.json",
-      testServers: [],
-      devs: ['132631391983632384'],
-      defaultPrefix: process.env.PREFIX,
-      mongoURI: process.env.MONGO_URI,
-      cacheUpdateSpeed: 60000 * 5,
-      disabledDefaultCommands: ['help'],
-      customMessageEvent: false,
-    })
+  new CDCommands(client, {
+    commandsDir: "commands",
+    eventsDir: "events",
+    featuresDir: "features",
+    MessageJSONPath: "message.json",
+    testServers: [],
+    devs: ['132631391983632384'],
+    defaultPrefix: process.env.PREFIX,
+    mongoURI: process.env.MONGO_URI,
+    cacheUpdateSpeed: 60000 * 5,
+    disabledDefaultCommands: ['help'],
+    customMessageEvent: false,
+  })
 
-    const targetGuild = client.guilds.cache.get('755142481317855293');
-    if (targetGuild.available) {
-      console.log(('[GUILD FOUND]'.blue) + ` ${targetGuild.name}`);
-    }
-    const memberCount = targetGuild.memberCount;
-    let activities = [
-    { type: 'WATCHING', status: `${targetGuild.memberCount} WIG members!` },
-    { type: 'PLAYING', status: `for ${targetGuild.name}`}
-    ], i = 0
-  
-    client.user.setActivity('the loading screen', { type: 'WATCHING' })
-  
-    setInterval(() => {
-      const current = activities[i++ % activities.length]
-      const { type, status } = current
-      client.user.setActivity(status, { type })
-    }, 30 * 1000)
-  
+  const targetGuild = client.guilds.cache.get('755142481317855293');
+  if (targetGuild.available) {
+    console.log(('[GUILD FOUND]'.blue) + ` ${targetGuild.name}`);
+  }
+  const memberCount = targetGuild.memberCount;
+  let activities = [{
+        type: 'WATCHING',
+        status: `${targetGuild.memberCount} WIG members!`
+      },
+      {
+        type: 'PLAYING',
+        status: `for ${targetGuild.name}`
+      }
+    ],
+    i = 0
+
+  client.user.setActivity('the loading screen', {
+    type: 'WATCHING'
+  })
+
+  setInterval(() => {
+    const current = activities[i++ % activities.length]
+    const {
+      type,
+      status
+    } = current
+    client.user.setActivity(status, {
+      type
+    })
+  }, 30 * 1000)
+
   // await mongo().then(mongoose =>{
   //   try{
   //     console.log(chalk.green('Connected to mongo!'))
@@ -66,7 +83,9 @@ const winston = require('winston');
 const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: 'log' }),
+    new winston.transports.File({
+      filename: 'log'
+    }),
   ],
   format: winston.format.printf(
     (log) => `[${log.level.toUpperCase()}] - ${log.message}`,
@@ -83,19 +102,19 @@ http
       const accessCode = urlObj.query.code;
       const data = {
         client_id: 'process.env.CLIENTID',
-        client_secret: 'qxLFcVbWEAzWHZRqZXP0KGLqwn2HBu_T',
+        client_secret: process.env.CLIENT_SECRET,
         grant_type: 'authorization_code',
         redirect_uri: 'http://localhost:53134',
         code: accessCode,
         scope: 'the scopes',
       };
       fetch('https://discord.com/api/oauth2/token', {
-        method: 'POST',
-        body: new URLSearchParams(data),
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      })
+          method: 'POST',
+          body: new URLSearchParams(data),
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+        })
         .then((discordRes) => discordRes.json())
         .then((info) => {
           console.log(info);
