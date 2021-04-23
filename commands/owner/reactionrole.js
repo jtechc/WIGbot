@@ -1,18 +1,28 @@
+const { Command } = require("cdcommands");
 require('dotenv').config();
 
-const { Command } = require("cdcommands");
+/**
+ * This command won't work at all. You can't do client.on events with CDCommands. 
+ * You need to put it in your events directory, you can export the stuff you need 
+ * from this file and require it in the event file. You also don't put two events 
+ * in one file, you'd have two different event files and one would have the
+ * messageReactionAdd event, the other would have the messageReactionRemove event.
+ */
 
 module.exports = new Command ({
   name: 'reactionrole',
-  category: 'Staff',
-  guildOnly: true,
-  userPermissions: ["ADMINISTRATOR"],
   description: 'Sets up a reaction role message',
-  run: async ({ message, args, client, prefix, language }) => {
+  details: 'Sets up a reaction role message',
+  minArgs: 0,
+  maxArgs: Infinity,
+  usage: '{prefix}reactionrole',
+  guildOnly: true,
+  noDisable: false,
+  userPermissions: ["ADMINISTRATOR"],
+  category: 'Staff',
+  run: async ({ message, client }) => {
 
-
-
-    if (message.author.id === process.env.BOTOWNERID) {
+    if (message.author.id === process.env.BOTOWNERID) { // Why not just put it as devOnly: true ?
       let channel = process.env.REACTIONROLECHANNEL;
       let yellowTeamRole = message.guild.roles.cache.find(
         (role) => role.name === 'reactionrole1',
@@ -36,7 +46,7 @@ module.exports = new Command ({
       messageEmbed.react(yellowTeamEmoji);
       messageEmbed.react(blueTeamEmoji);
 
-      client.on('messageReactionAdd', async (reaction, user) => {
+      client.on('messageReactionAdd', async (reaction, user) => { // This will not work, you can't make client.on events
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
         if (user.bot) return;
@@ -56,7 +66,7 @@ module.exports = new Command ({
           return;
         }
       });
-      client.on('messageReactionRemove', async (reaction, user) => {
+      client.on('messageReactionRemove', async (reaction, user) => { // This will not work, you can't make client.on events.
         if (reaction.message.partial) await reaction.message.fetch();
         if (reaction.partial) await reaction.fetch();
         if (user.bot) return;

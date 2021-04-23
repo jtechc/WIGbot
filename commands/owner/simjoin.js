@@ -2,14 +2,17 @@ const { Command } = require("cdcommands");
 
 module.exports = new Command ({
   name: 'simjoin',
+  description: 'simulate a new member joining',
+  details: 'simulate a new member joining',
+  minArgs: 0,
+  maxArgs: Infinity,
+  usage: '{prefix}simjoin',
+  guildOnly: true,
+  devOnly: true,
+  noDisable: true,
   userPermissions: ['ADMINISTRATOR'],
   category: 'Staff',
-  description: 'simulate a new member joining',
-  run: ({ message, args, client, prefix, language }) => {
-    if (message.author.id === process.env.BOTOWNERID) {
-      client.emit('guildMemberAdd', message.member);
-    } else {
-      message.channel.send("You don't have the permission to do that.");
-    }
+  run: ({ message, client }) => {
+    client.emit('guildMemberAdd', message.member);
   },
 });
