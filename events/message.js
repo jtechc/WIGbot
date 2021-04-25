@@ -21,7 +21,7 @@ module.exports = new Event("message", async (client, message) => {
      * to run a command it may not work
      */
 
-    console.log(colour(`${message.author.tag} => (#${message.channel.name}):` + ` ${message.content}`, {textColour: 'green'}));
+    console.log(colour(`${message.author.tag} => (#${message.channel.name}):`, {textColour: 'green'} + ` ${message.content}`));
 
 
 /*   console.log(colour(
