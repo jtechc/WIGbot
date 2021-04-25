@@ -21,13 +21,24 @@ module.exports = new Event("message", async (client, message) => {
      * to run a command it may not work
      */
 
-    console.log(colour(`${message.author.tag} => (#${message.channel.name}):`, {textColour: 'green'}) + ` ${message.content}`);
+  // Message Logger
+  console.log(colour(`${message.author.tag} => (#${message.channel.name}):`, {textColour: 'green'}) + ` ${message.content}`);
 
+  // Automatic Reaction Poll
+  let pollChannels = ['755142481716314216'];
+  if (message.channel.id === pollChannels) {
 
-/*   console.log(colour(
-      `${message.author.tag} => (#${message.channel.name}):`,
-    ) + ` ${message.content}`,
-  ); */
+    const { pollContent } = message;
+    const pollContentEachLine = pollContent.split('\n');
+
+    for (const contentLine of pollContentEachLine) {
+      if (contentLine.includes('=')) {
+        let split = contentLine.split('=');
+        let emoji = split[0].trim();
+        message.react(emoji);
+      }
+    }
+  }
 
   const args = message.content.trim().slice(prefix.length).split(/ +/g);
   const commandName = args.shift().toLowerCase();

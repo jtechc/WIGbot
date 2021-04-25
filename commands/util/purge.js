@@ -1,4 +1,4 @@
-const { Command, Validator} = require("cdcommands");
+const { Command, Validator } = require("cdcommands");
 
 module.exports = new Command ({
   name: 'purge',

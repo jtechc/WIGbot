@@ -11,8 +11,7 @@ module.exports = new Feature((client) => {
     channel.setName(`Total Members: ${memberCount.toLocaleString()}`);
     console.log(
       chalk.magentaBright(
-        `Current member count: ${memberCount} | Checking if we need to update`,
-      ),
+        'Current member count: ' + chalk.blueBright(`${memberCount}`)) + ' Checking if we need to update'
     );
   }, 300 * 1000);
 });

@@ -1,4 +1,4 @@
-const { MessageEmbed} = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 const { Command } = require("cdcommands");
 
 module.exports = new Command ({
