@@ -17,3 +17,5 @@ settings.js
 nodemon.json
 build/workspace.code-workspace
 build
+yarn.lock
+package-lock.json
