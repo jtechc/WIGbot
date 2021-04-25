@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const reqString = { // You watched WOK to do this.
+const reqString = { // You watched WOK to do this. --- Yes 
     type: String,
     required: true
 }

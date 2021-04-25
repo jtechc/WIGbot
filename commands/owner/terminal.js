@@ -33,7 +33,7 @@ module.exports = new Command({
             message.channel.send(result, { code: "asciidoc", split: "\n"}).catch(err => message.channel.send(err))
         })
         } else {
-            return message.reply(`Developers Only!`); // Again, you have devOnly: true, so why would you add an if else statment?. 
+            return message.reply(`Developers Only!`); // Again, you have devOnly: true, so why would you add an if else statment?. --- Extra layer of protection /shrug
         }
 
     }

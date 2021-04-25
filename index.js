@@ -63,13 +63,6 @@ client.on("ready", () => {
       type
     })
   }, 30 * 1000)
-
-  // await mongo().then(mongoose =>{
-  //   try{
-  //     console.log(chalk.green('Connected to mongo!'))
-  // } finally {
-  //   mongoose.connection.close()
-  // }})
 })
 
 const myEnmap = new Enmap({

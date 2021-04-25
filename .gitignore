@@ -14,3 +14,4 @@ pm2-bot.json
 .env.id
 mongo.js
 settings.js
+nodemon.json
