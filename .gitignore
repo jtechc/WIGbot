@@ -15,3 +15,5 @@ pm2-bot.json
 mongo.js
 settings.js
 nodemon.json
+build/workspace.code-workspace
+build
