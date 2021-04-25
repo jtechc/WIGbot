@@ -1,4 +1,3 @@
-const mongo = require('../../mongo');
 const welcomeSchema = require('../../schemas/welcome-schema')
 const { Command } = require("cdcommands");
 

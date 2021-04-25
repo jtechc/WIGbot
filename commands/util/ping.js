@@ -10,7 +10,7 @@ module.exports = new Command ({
   noDisable: true,
   cooldown: 15000,
   category: 'Utility',
-  run: ({ message, client }) => {
+  run: async ({ message, client }) => {
 
     const msg = await message.reply('```Checking my ping to the server...```');
     const latency = msg.createdTimestamp - message.createdTimestamp;

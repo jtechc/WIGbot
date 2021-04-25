@@ -24,13 +24,13 @@ client.on("ready", () => {
     eventsDir: "events",
     featuresDir: "features",
     MessageJSONPath: "message.json",
-    testServers: [],
+    testServers: ['828579107830104096'],
     devs: ['132631391983632384'],
     defaultPrefix: process.env.PREFIX,
     mongoURI: process.env.MONGO_URI,
     cacheUpdateSpeed: 60000 * 5,
     disabledDefaultCommands: ['help'],
-    customMessageEvent: false,
+    customMessageEvent: true,
   })
 
   const targetGuild = client.guilds.cache.get('755142481317855293');

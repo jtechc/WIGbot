@@ -9,10 +9,9 @@ module.exports = new Feature((client) => {
     const memberCount = guild.memberCount;
     const channel = guild.channels.cache.get('829192388361584650');
     channel.setName(`Total Members: ${memberCount.toLocaleString()}`);
-    console.log(
-      chalk.magentaBright(
+    console.logInfo(
         `Current member count: ${memberCount} | Checking if we need to update`,
-      ),
+      
     );
   }, 300 * 1000);
 });

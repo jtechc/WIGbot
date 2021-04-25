@@ -1,6 +1,6 @@
 const chalk = require('chalk');
 const { inspect } = require('util');
-const { create } = reqire('sourcebin');
+const { create } = require('sourcebin');
 const { Command } = require("cdcommands");
 const { MessageEmbed } = require('discord.js');
 
@@ -22,7 +22,7 @@ module.exports = new Command ({
   maxArgs: Infinity,
   usage: '{prefix}jseval <Code>',
   category: 'Owner',
-  run: ({ message, args }) => {
+  run: async ({ message, args }) => {
 
     let result;
     try {
