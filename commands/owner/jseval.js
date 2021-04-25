@@ -38,7 +38,7 @@ module.exports = new Command ({
       result = error.toString();
       embed.setColor('RED');
     }
-
+    let response = result;
     if (response.length >= 2000) {
       let src;
       try {
