@@ -1,4 +1,3 @@
-const chalk = require('chalk');
 const { Event } = require('cdcommands');
 const { MessageEmbed } = require('discord.js');
 

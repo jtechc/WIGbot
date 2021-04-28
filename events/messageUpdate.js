@@ -1,7 +1,12 @@
 const { Event } = require('cdcommands');
+const { MessageEmbed } = require('discord.js');
 
-module.exports = new Event("messageUpdate", (client, message) => {
+module.exports = new Event("messageUpdate", (client, oldMessage, newMessage) => {
+    if(oldMessage.content == newMessage) return;
+    if(oldMessage.author.bot) return;
+
     console.log(
-        `${message.author.username} edited their message: ${message.content}${message.editedAt}\n${message.edits}`
+        `${client.user?.tag} saw ${message.author.username} edited their message: ${oldMessage}${message.editedAt}\n${newMessage}`
     );
+    return;
 })
