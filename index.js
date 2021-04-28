@@ -15,6 +15,7 @@ const url = require('url');
 const port = process.env.PORT;
 const fetch = require('node-fetch');
 memberCounter = require('./features/member-counter');
+
 client.on("ready", () => {
   console.log(chalk.green(
     `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
