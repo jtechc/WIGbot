@@ -2,8 +2,8 @@ const chalk = require('chalk');
 const { Event } = require('cdcommands');
 const { MessageEmbed } = require('discord.js');
 
-module.exports = new Event("guildMemberAdd", (message) => {
-  const welcomeChannel = message.guild.channels.cache.find(ch => ch.name.includes('〔👋〕welcome'))
+module.exports = new Event("guildMemberAdd", (client, member) => {
+  const welcomeChannel = client.channels.cache.find(ch => ch.name.includes('〔👋〕welcome'))
   if (!welcomeChannel) return;
 
   let rolesChannel = '820584826351517728';
@@ -12,13 +12,12 @@ module.exports = new Event("guildMemberAdd", (message) => {
   .setTitle('Welcome to WIG!')
   .setURL('https://www.wickedimmortalsgaming.com')
   .setDescription(
-    `Welcome, <@${message.user.id}>, to ${message.guild.name}!\n\nPlease head to <#${rolesChannel}> to pick your roles!`,
+    `Welcome, <@${member.user?.id}>, to ${member.guild.name}!\n\nPlease head to <#${rolesChannel}> to pick your roles!`,
   )
   .setThumbnail('https://i.imgur.com/I9gPKnJ.png')
-  .setTimestamp();
+  .setTimestamp()
+  .setFooter(`Member #${member.guild.memberCount}`);
 
-  welcomeChannel.send(`<@${message.user.id}>`, welcomeEmbed);
-
-  console.log(chalk.yellow(`${rolesChannel}`));
+  welcomeChannel.send(`<@${member.user?.id}>`, welcomeEmbed);
 
 });

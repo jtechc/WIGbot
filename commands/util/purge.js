@@ -8,7 +8,7 @@ module.exports = new Command ({
   minArgs: 1,
   maxArgs: 1,
   usage: '{prefix}purge <amount>',
-  validator: new Validator({
+  validate: new Validator({
     validate: ({ args }) => {
       if (isNaN(args[0]) ||
         args[0] > 100 ||
