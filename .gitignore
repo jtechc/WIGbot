@@ -13,8 +13,6 @@ pm2-bot.json
 .env.defaults
 .env.id
 mongo.js
-settings.js
-nodemon.json
 build/workspace.code-workspace
 build
 yarn.lock
