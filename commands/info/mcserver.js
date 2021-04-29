@@ -5,8 +5,8 @@ const { Command } = require("cdcommands");
 module.exports = new Command ({
   name: 'mcserver',
   aliases: ['mc', 'mccheck', 'minecraft'],
-  description: 'Get\'s information on a Minecraft server',
-  details: 'Get\'s information on a Minecraft server',
+  description: 'Gets information on a Minecraft server',
+  details: 'Gets information on a Minecraft server',
   minArgs: 0,
   maxArgs: 2,
   usage: '{prefix}mcserver <Server IP> <Server Ports>',

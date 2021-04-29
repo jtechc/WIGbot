@@ -1,7 +1,6 @@
 const chalk = require('chalk');
 const { Event } = require('cdcommands');
 const { MessageEmbed } = require('discord.js');
-const _ = require('lodash');
 
 module.exports = new Event("messageDelete", (client, message) => {
     console.log(chalk.red(`${client.user.username} saw ${message.author.username} delete ${message.content}`))
@@ -16,7 +15,7 @@ module.exports = new Event("messageDelete", (client, message) => {
             const embed = new MessageEmbed()
             .setDescription(
                 `Message deleted in \`#${message.channel.name}\`\f
-                    Message: ${message}\f
+                    Message: \`\`\`${message}\`\`\`\f
                     User: ${message.author.tag}`
             )
             .setAuthor(

@@ -13,18 +13,16 @@ noDisable: false,
 category: 'Info',
 run: ({ message, args }) => {
   const channel = message.mentions.channels.first();
-  args[0] = channel;
 
   let embed = new MessageEmbed()
   .setTitle('Wicked Immortals Gaming Website')
   .setDescription('The Wicked Immortals Gaming Store/Website!')
   .setColor('#1E74BB')
   .setURL('https://wickedimmortalsgaming.com/')
-  .setThumbnail('https://i.imgur.com/I9gPKnJ.png')
-  .setTimestamp();
+  .setThumbnail('https://i.imgur.com/I9gPKnJ.png');
 
-  if (args[0] === channel) return message.channel.send(embed);
-  message.reply(embed)
+  if (!channel) { return message.channel.send(embed);
+  } else {channel.send(embed)}
 
 }
 })
