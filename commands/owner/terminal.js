@@ -12,7 +12,7 @@ module.exports = new Command({
     usage: '{prefix} <command to run>',
     devOnly: true,
     noDisable: false,
-    valdiate: new Validator({
+    validate: new Validator({
         validate: ({ message, args, client, prefix, language }) => {
             if (args[0] !== 'send') return "INCORRECT_ARGS";
         },

@@ -1,9 +1,5 @@
-const {
-  Client
-} = require('discord.js');
-const {
-  CDCommands
-} = require('cdcommands');
+const { Client } = require('discord.js');
+const { CDCommands } = require('cdcommands');
 const client = new Client({
   partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
 });
@@ -14,12 +10,14 @@ const http = require('http');
 const url = require('url');
 const port = process.env.PORT;
 const fetch = require('node-fetch');
+const chalk = require('chalk');
+const winston = require('winston');
+
 memberCounter = require('./features/member-counter');
 
 client.on("ready", () => {
-  console.log(chalk.green(
-    `Logged in as ${client.user.tag} for ${client.guilds.cache.size} current server(s)`,
-  ));
+  console.log(chalk.cyanBright('[INFO]') + ` Logged in as ${client.user.tag} for ${client.guilds.cache.size} server(s)`
+  );
   new CDCommands(client, {
     commandsDir: "commands",
     eventsDir: "events",
@@ -32,7 +30,7 @@ client.on("ready", () => {
     cacheUpdateSpeed: 60000 * 5,
     disabledDefaultCommands: ['help'],
     customMessageEvent: true,
-  })
+  });
 
   const targetGuild = client.guilds.cache.get('755142481317855293');
   if (targetGuild.available) {
@@ -72,8 +70,6 @@ const myEnmap = new Enmap({
   fetchAll: false,
 });
 
-const chalk = require('chalk');
-const winston = require('winston');
 const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
