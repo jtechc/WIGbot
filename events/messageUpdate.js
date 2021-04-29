@@ -6,7 +6,7 @@ module.exports = new Event("messageUpdate", (client, oldMessage, newMessage) => 
     if(oldMessage.author.bot) return;
 
     console.log(
-        `${client.user?.tag} saw ${message.author.username} edited their message: ${oldMessage}${message.editedAt}\n${newMessage}`
+        `${client.user?.tag} saw ${newMessage.author.username} edited their message: ${oldMessage} at:${newMessage.editedAt}\nNew Message Content: ${newMessage}`
     );
     return;
 })

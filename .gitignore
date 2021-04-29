@@ -17,3 +17,4 @@ build/workspace.code-workspace
 build
 yarn.lock
 package-lock.json
+Functions.js

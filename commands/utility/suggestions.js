@@ -11,7 +11,7 @@ module.exports = new Command ({
     usage: '{prefix}suggestions <Suggestion>',
     guildOnly: true,
     noDisable: false,
-    category: 'Info',
+    category: 'Utility',
     run: ({ message, args }) => {
         const channel = message.client.channels.cache.find(c => c.name === '〔💡〕suggestions');
         if (!channel)

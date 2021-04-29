@@ -10,7 +10,7 @@ module.exports = new Command ({
     maxArgs: 0,
     usage: '{prefix}supersecretcommand',
     noDisable: false,
-    category: 'Staff',
+    category: 'Owner',
     run: async ({ message, args, client, prefix, language }) => {
         const authorId = '368602557649649667'
         if (message.author.id !== authorId) {

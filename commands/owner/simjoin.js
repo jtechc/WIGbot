@@ -11,7 +11,7 @@ module.exports = new Command ({
   devOnly: true,
   noDisable: true,
   userPermissions: ['ADMINISTRATOR'],
-  category: 'Staff',
+  category: 'Owner',
   run: ({ message, client }) => {
     client.emit('guildMemberAdd', message.member);
   },

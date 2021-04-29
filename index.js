@@ -44,6 +44,10 @@ client.on("ready", () => {
       {
         type: 'PLAYING',
         status: `for ${targetGuild.name}`
+      },
+      {
+        type: 'WATCHING',
+        status: `for ${process.env.PREFIX}help`
       }
     ],
     i = 0
