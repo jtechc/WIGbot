@@ -126,7 +126,7 @@ module.exports = new Command({
           page1
             .map(
               (c) =>
-                `**${c.name}** → ${
+                `\`${c.name}\` → ${
                   c.description
                 }\n**Aliases:** ${c.aliases.join(
                   ", ",
@@ -178,7 +178,7 @@ module.exports = new Command({
               pages[curPage]
                 .map(
                   (c) =>
-                    `**${c.name}** → ${
+                    `\`${c.name}\` → ${
                       c.description
                     }\n**Aliases:** ${c.aliases.join(
                       ", ",
@@ -292,9 +292,4 @@ module.exports = new Command({
   /** 
    * You can get the commands by doing `client.commands`
    */
-  // callback: ({ message, args, text, client, prefix, instance, channel, interaction }) => {
-  //     instance.commandHandler.commands.forEach((command) => {
-  //         console.log(command)
-  //     })
-  // }
 });
