@@ -19,4 +19,4 @@ module.exports = new Event("channelCreate", (client, GuildChannel) => {
   .setTimestamp();
 
   logChannel.send(cdEmbed);
-})
+});

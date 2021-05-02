@@ -32,4 +32,4 @@ module.exports = new Event("messageUpdate", (client, oldMessage, newMessage) => 
         });
         };
     } else return;
-})
+});

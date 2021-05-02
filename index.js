@@ -36,7 +36,6 @@ client.on("ready", () => {
   if (targetGuild.available) {
     console.log(('[GUILD FOUND]'.blue) + ` ${targetGuild.name}`);
   }
-  const memberCount = targetGuild.memberCount;
   let activities = [{
         type: 'WATCHING',
         status: `${targetGuild.memberCount} WIG members!`
