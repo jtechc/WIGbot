@@ -10,7 +10,7 @@ maxArgs: Infinity,
 usage: '{prefix}sudo <message>',
 userPermissions: ['MANAGE_MESSAGES'],
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 category: 'Utility',
 run: ({ message, args, client }) => {
   const member = message.mentions.users.first();

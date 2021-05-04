@@ -19,7 +19,7 @@ minArgs: 1,
 maxArgs: Infinity,
 usage: '{prefix}deqrcode <qrcode>',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 guildOnly: false,
 category: 'Utility',
 run: async ({ message, args, client, prefix, language }) => {

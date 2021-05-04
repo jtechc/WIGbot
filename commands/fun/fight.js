@@ -9,7 +9,7 @@ minArgs: 1,
 maxArgs: 1,
 usage: '{prefix}fight <userTag>',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 category: 'Fun',
 run: ({ message, client }) => {
   const newFight = new fight({

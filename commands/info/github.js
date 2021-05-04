@@ -10,7 +10,7 @@ minArgs: 0,
 maxArgs: 0,
 usage: '{prefix}github',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 category: 'Info',
 run: ({ message }) => {
   const embed = new MessageEmbed()

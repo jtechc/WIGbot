@@ -11,7 +11,7 @@ minArgs: 0,
 maxArgs: Infinity,
 usage: '{prefix}autosb <code>',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 validate: new Validator({
   validate: ({ message, args }) => {
     let content = args.join(' ');

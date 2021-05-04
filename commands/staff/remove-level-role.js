@@ -12,7 +12,7 @@ maxArgs: Infinity,
 usage: '{prefix}removelevelrole <role>',
 noDisable: false,
 userPermissions: ['ADMINISTRATOR'],
-cooldown: 60000,
+cooldown: 15000,
 category: 'Staff',
 run: async ({ message, args, client, prefix, language }) => {
   const provide = new MessageEmbed()

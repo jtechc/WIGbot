@@ -14,7 +14,7 @@ minArgs: 0,
 maxArgs: Infinity,
 usage: '{prefix}akinator <text>',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 category: 'Fun',
 run: async ({ message, args, client, prefix, language }) => {
   const Started = new Set();

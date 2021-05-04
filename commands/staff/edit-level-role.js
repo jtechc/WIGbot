@@ -11,7 +11,7 @@ minArgs: 0,
 maxArgs: Infinity,
 usage: '{prefix}editlevelrole <role> <newLevel>',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 category: 'Staff',
 run: async ({ message, args, client, prefix, language }) => {
   const provide = new MessageEmbed()

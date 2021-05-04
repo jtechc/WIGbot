@@ -25,7 +25,7 @@ minArgs: 1,
 maxArgs: Infinity,
 usage: '{prefix}qrcode <text>',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 guildOnly: false,
 validate: new Validator({
   validate: ({ message, args, client, prefix, language }) => {

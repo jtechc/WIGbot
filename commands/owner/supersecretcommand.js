@@ -14,7 +14,7 @@ module.exports = new Command ({
     run: async ({ message, args, client, prefix, language }) => {
         const authorId = '368602557649649667'
         if (message.author.id !== authorId) {
-            return message.channel.send('Is your name Fate? Or Chelsi? I didn\'t think so. This command isn\'t for you!')
+            return message.channel.send('This command isn\'t for you!')
         }
         const emojiReactionBackward = '💖'
         const emojiReactionForward = '💕'

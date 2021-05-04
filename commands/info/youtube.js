@@ -8,7 +8,7 @@ module.exports = new Command ({
   maxArgs: Infinity,
   usage: '{prefix}youtube',
   noDisable: false,
-  cooldown: 60000,
+  cooldown: 15000,
   userPermissions: ["ADMINISTRATOR"],
   category: 'Info',
   run: ({ message }) => {

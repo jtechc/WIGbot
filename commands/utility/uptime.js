@@ -9,7 +9,7 @@ minArgs: 0,
 maxArgs: 0,
 usage: '{prefix}uptime',
 noDisable: false,
-cooldown: 60000,
+cooldown: 15000,
 category: 'Utility',
 run: async ({ message, client }) => {
   let days = Math.floor(client.uptime / 86400000);

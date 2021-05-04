@@ -10,7 +10,7 @@ details: 'Bot shuffles a word, player needs to guess what it is',
 minArgs: 0,
 maxArgs: 0,
 usage: '{prefix}shuffle',
-cooldown: 60000,
+cooldown: 15000,
 noDisable: false,
 category: 'Fun',
 run: ({ message, client }) => {

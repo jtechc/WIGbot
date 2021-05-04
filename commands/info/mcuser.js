@@ -11,7 +11,7 @@ minArgs: 1,
 maxArgs: 1,
 usage: '{prefix}mcuser <username>',
 noDisable: false,
-cooldown: 10000,
+cooldown: 15000,
 validate: new Validator({
   validate: ({ message, args, client }) => {
     if (args[0]) return "INCORRECT_USAGE";

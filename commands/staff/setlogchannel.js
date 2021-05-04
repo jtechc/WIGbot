@@ -1,51 +1,67 @@
 const { Command } = require('cdcommands');
 const { MessageEmbed } = require('discord.js');
-const { Mongoose } = require('mongoose');
-const log = require('../../schemas/logSchema');
+const mongoose = require('mongoose');
+const log = require('../../schemas/logSchema.js');
 const colors = require('colors');
 
 module.exports = new Command({
 name: 'setlogchannel',
-aliases: ['setlogs'],
+aliases: ['setlogs', 'logs'],
 description: 'Set the log channel per guild',
 details: 'Set the log channel per guild',
 minArgs: 0,
 maxArgs: Infinity,
 usage: '{prefix}setlogs',
 noDisable: false,
+guildOnly: true,
 userPermissions: ['ADMINISTRATOR'],
-cooldown: 60000,
+cooldown: 15000,
 category: 'Staff',
 run: async ({ message, args, client, prefix, language }) => {
-try {const channel = message.mentions.channels.first()
-  if (!channel) return message.reply(`**Can't seem to find this channel**`).then(m => m.delete({ timeout: 3000 }));
+  try {
+    let logChannel = message.mentions.channels.first()
+    if(!logChannel) {
+      await log.findOneAndDelete({
+        guildId: message.guild.id
+      })
+      const embed = new MessageEmbed()
+      .setColor('RANDOM')
+      .setTitle('Log Channel')
+      .setDescription(`${message.author} changed Log Channel to \`None\``)
 
-  await log.findOne({
-    guildId: message.guild.id
-  }, async (err, data) => {
-    if (err) console.error(err);
-    if (!data) {
+      message.channel.send(embed)
+      return
+    }
+    const logFind = await log.findOne({
+      guildId: message.guild.id
+    })
+    if(!logFind) {
       const newLog = new log({
-        _id: mongoose.SchemaTypes.ObjectId(),
         guildId: message.guild.id,
-        logChannel: channel.id
+        channelId: logChannel.id
       });
       await newLog.save()
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
-
-      return message.reply(`Log channel has been updated to ${channel}`);
+      .catch(err => message.reply(`There was an error: ${err.message}`));
     } else {
-      log.updateOne({
-        logChannel: channel.id
+      await log.findOneAndUpdate({
+        guildId: message.guild.id
+      }, {
+        channelId: logChannel.id,
+        guildId: message.guild.id,
+      }, {
+        upsert: true
       })
-      .then(result => console.log(result))
-      .catch(err => console.log(err));
-
-      return message.reply(`Log channel has been updated to ${channel}`);
     }
-  })} catch (error) {
-    console.log('error'.red)
+    const embed2 = new MessageEmbed()
+    .setColor('RANDOM')
+    .setTitle('Log Channel')
+    .setDescription(`${message.author} changed Log Channel to ${logChannel}`)
+
+    message.channel.send(embed2).catch(() => {})
+  } catch (e) {
+    message.reply('`[❌]` Error. Please report!').catch(() => {})
+    console.log(e)
+    return
   }
 } 
 })

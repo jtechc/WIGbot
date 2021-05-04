@@ -1,18 +1,14 @@
 const mongoose = require('mongoose');
 
 const logSchema = new mongoose.Schema({
-  _id: {
-    type: mongoose.SchemaTypes.ObjectId,
-    required: false
-  },
-  guildId: {
-    type: mongoose.SchemaTypes.String,
+  channelId: {
+    type: String,
     required: true
   },
-  logChannel: {
-    type: mongoose.SchemaTypes.String,
+  guildId: {
+    type: String,
     required: true
   }
 });
 
-module.exports = mongoose.model('log', logSchema);
+module.exports = mongoose.model('log-channels', logSchema)
