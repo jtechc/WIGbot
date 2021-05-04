@@ -19,10 +19,11 @@ minArgs: 1,
 maxArgs: Infinity,
 usage: '{prefix}deqrcode <qrcode>',
 noDisable: false,
+cooldown: 60000,
 guildOnly: false,
 category: 'Utility',
 run: async ({ message, args, client, prefix, language }) => {
-  let url = (message.attachements).array()[0]?.url || args[0]?.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g)
+  let url = (message.attachments).array()[0]?.url || args[0]?.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/g)
   if (!url)
     return sendError(message, 'You must provide a qrcode to decypher.', 'Invalid Syntax');
 

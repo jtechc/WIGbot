@@ -11,6 +11,7 @@ minArgs: 0,
 maxArgs: Infinity,
 usage: '{prefix}autosb <code>',
 noDisable: false,
+cooldown: 60000,
 validate: new Validator({
   validate: ({ message, args }) => {
     let content = args.join(' ');
@@ -40,7 +41,7 @@ run: async ({ message, args, client, prefix, language }) => {
     .setTitle('Sourcebin')
     .setDescription(`Here is the output: ${value.url}`)
     .setColor('RANDOM')
-    .setFooter(`Requested by ${client.user.tag}`)
+    .setFooter(`Uploaded swiftly by ${client.user.tag}`)
   );
 
 

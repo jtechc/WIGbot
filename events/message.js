@@ -5,8 +5,10 @@ const {
   ValidateRoles,
   FormatCooldown,
 } = require("cdcommands/src/Functions");
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, DMChannel } = require("discord.js");
 const colour = require('cdcolours');
+const Levels = require('discord-xp');
+const fs = require('fs');
 
 module.exports = new Event("message", async (client, message) => {
   const prefix = message.guild
@@ -40,6 +42,39 @@ module.exports = new Event("message", async (client, message) => {
     }
   }
 
+if (!DMChannel) {const randomXp = Math.floor(Math.random() * 46) + 1;
+  const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
+
+  if(hasLeveledUp) {
+    const User = await Levels.fetch(message.author.id, message.guild.id);
+
+    const LevelUp = new MessageEmbed()
+    .setThumbnail(message.author.displayAvatarURL({ dynamic: true }))
+    .setTitle(`${message.author.username} Leveled up.`)
+    .setDescription(`${message.author} You have leveled up to **${User.level}**`)
+    .setColor('RANDOM')
+    .setTimestamp();
+    message.channel.send(LevelUp);
+
+    const levelRolesStorage = fs.readFileSync('../Storages/Level-Roles.json')
+    const levelRoles = JSON.parse(levelRolesStorage.toString())
+
+    const guildCheck = levelRoles.find(guild => {
+      return guild.guildId === `${message.guild.id}`
+    })
+    if(!guildCheck) return;
+
+    for (let i = 0; i < guildRoles.length; i++) {
+      const User = await Levels.fetch(message.author.id, message.guild.id);
+      if(User.level == parseInt(guildRoles[i].levelToReach)) {
+        const authorId = message.guild.members.cache.get(message.author.id);
+        const givenLevelRole = guildRoles[i].levelRoleId
+
+        return authorId.roles.add(givenLevelRole)
+      }
+    }
+  }
+} 
   const args = message.content.trim().slice(prefix.length).split(/ +/g);
   const commandName = args.shift().toLowerCase();
 

@@ -1,5 +1,6 @@
 const { Command } = require('cdcommands');
 const { FastType } = require('weky');
+const leaderboard = require('../../schemas/leaderboardSchema.js')
 
 module.exports = new Command({
 name: 'fasttype',
@@ -9,6 +10,7 @@ minArgs: 0,
 maxArgs: 0,
 usage: '{prefix}fasttype',
 noDisable: false,
+cooldown: 60000,
 category: 'Fun',
 run: ({ message }) => {
   const game = new FastType({

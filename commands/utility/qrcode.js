@@ -25,6 +25,7 @@ minArgs: 1,
 maxArgs: Infinity,
 usage: '{prefix}qrcode <text>',
 noDisable: false,
+cooldown: 60000,
 guildOnly: false,
 validate: new Validator({
   validate: ({ message, args, client, prefix, language }) => {
@@ -61,7 +62,7 @@ run: async ({ message, args, client, prefix, language }) => {
     .attachFiles([
       {
         name: 'qrcode.png',
-        attachment: streamToBuffer(res.data, function(err, buffer) {
+        attachment: streamToBuffer(res.data, function(err, buff) {
           return buff;
         })
       }

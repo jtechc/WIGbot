@@ -10,6 +10,7 @@ maxArgs: 1,
 usage: '{prefix}website [channel]',
 userPermissions: ['SEND_MESSAGES'],
 noDisable: false,
+cooldown: 60000,
 category: 'Info',
 run: ({ message, args }) => {
   const channel = message.mentions.channels.first();

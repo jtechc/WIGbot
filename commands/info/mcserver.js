@@ -11,6 +11,7 @@ module.exports = new Command ({
   maxArgs: 2,
   usage: '{prefix}mcserver <Server IP> <Server Ports>',
   noDisable: false,
+  cooldown: 60000,
   category: 'Info',
   run: ({ message, args, client }) => {
     if (!args[0])
