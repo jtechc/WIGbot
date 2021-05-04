@@ -5,8 +5,8 @@ module.exports = new Event("messageUpdate", (client, oldMessage, newMessage) => 
     if(oldMessage.content == newMessage) return;
     if(oldMessage.author.bot) return;
 
-    const guild = client.guilds.cache.get('755142481317855293');
-    const logChannel = guild.channels.cache.get('832501191698415646');
+    const guild = client.guilds.cache.get('823350523334754364');
+    const logChannel = guild.channels.cache.get('823353093671878697');
 
     if (logChannel) {
         if (newMessage.author.bot) {

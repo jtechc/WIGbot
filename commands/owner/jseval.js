@@ -18,6 +18,7 @@ module.exports = new Command ({
   aliases: ['eval', 'evaluate'],
   description: 'evaluates Javascript code represented as a string.',
   details: 'evaluates Javascript code represented as a string.',
+  devOnly: true,
   minArgs: 1,
   maxArgs: Infinity,
   usage: '{prefix}jseval <Code>',

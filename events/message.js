@@ -14,10 +14,10 @@ module.exports = new Event("message", async (client, message) => {
       ? client.databaseCache.getDocument("prefixes", message.guild.id).prefix
       : client.defaultPrefix
     : client.defaultPrefix;
-    
+
     /**
      * You can put your code here, try not to use "return". Instead
-     * use if statements, if you use "return" then when someone tries 
+     * use if statements, if you use "return" then when someone tries
      * to run a command it may not work
      */
 
@@ -25,7 +25,7 @@ module.exports = new Event("message", async (client, message) => {
   console.log(colour(`${message.author.tag} => (#${message.channel.name}):`, {textColour: 'green'}) + ` ${message.content}`);
 
   // Automatic Reaction Poll
-  let pollChannels = ['755142481716314216'];
+  let pollChannels = ['823353074662768650'];
   if (message.channel.id === pollChannels) {
 
     const { pollContent } = message;
@@ -45,7 +45,7 @@ module.exports = new Event("message", async (client, message) => {
 
   if (!message.content.startsWith(prefix)) return;
   if (client.ignoreBots && message.author.bot) return;
-  
+
   const command =
     client.commands.get(commandName) ||
     client.commands.get(client.aliases.get(commandName));

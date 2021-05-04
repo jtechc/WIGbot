@@ -23,7 +23,7 @@ client.on("ready", () => {
     eventsDir: "events",
     featuresDir: "features",
     MessageJSONPath: "message.json",
-    testServers: ['828579107830104096'],
+    testServers: ['828579107830104096', '823350523334754364'],
     devs: ['132631391983632384'],
     defaultPrefix: process.env.PREFIX,
     mongoURI: process.env.MONGO_URI,
@@ -32,13 +32,13 @@ client.on("ready", () => {
     customMessageEvent: true,
   });
 
-  const targetGuild = client.guilds.cache.get('755142481317855293');
+  const targetGuild = client.guilds.cache.get('823350523334754364');
   if (targetGuild.available) {
     console.log(('[GUILD FOUND]'.blue) + ` ${targetGuild.name}`);
   }
   let activities = [{
         type: 'WATCHING',
-        status: `${targetGuild.memberCount} WIG members!`
+        status: `${targetGuild.memberCount} members`
       },
       {
         type: 'PLAYING',

@@ -5,7 +5,7 @@ module.exports = new Event("guildMemberAdd", (client, member) => {
   const welcomeChannel = client.channels.cache.find(ch => ch.name.includes('〔👋〕welcome'))
   if (!welcomeChannel) return;
 
-  let rolesChannel = '820584826351517728';
+  let rolesChannel = '823353077142257664';
   let welcomeEmbed = new MessageEmbed()
   .setColor('#1E74BB')
   .setTitle('Welcome to WIG!')
