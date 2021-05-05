@@ -32,7 +32,7 @@ client.on("ready", () => {
     customMessageEvent: true,
   });
 
-  const targetGuild = client.guilds.cache.get('823350523334754364');
+  const targetGuild = client.guilds.cache.get('755142481317855293');
   if (targetGuild.available) {
     console.log(('[GUILD FOUND]'.blue) + ` ${targetGuild.name}`);
   }

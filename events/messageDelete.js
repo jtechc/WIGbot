@@ -5,8 +5,8 @@ const { MessageEmbed } = require('discord.js');
 module.exports = new Event("messageDelete", (client, message) => {
     client.logInfo({ data: `${client.user.username} saw ${message.author.username} delete ${message.content}`})
 
-    const guild = client.guilds.cache.get('823350523334754364');
-    const logChannel = guild.channels.cache.get('823353093671878697');
+    const guild = client.guilds.cache.get('755142481317855293');
+    const logChannel = guild.channels.cache.get('832501191698415646');
 
     if (logChannel) {
         if (message.author.bot) {

@@ -27,7 +27,7 @@ module.exports = new Event("message", async (client, message) => {
   console.log(colour(`${message.author.tag} => (#${message.channel.name}):`, {textColour: 'green'}) + ` ${message.content}`);
 
   // Automatic Reaction Poll
-  let pollChannels = ['823353074662768650'];
+  let pollChannels = ['755142481716314216'];
   if (message.channel.id === pollChannels) {
 
     const { pollContent } = message;
