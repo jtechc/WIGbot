@@ -15,7 +15,7 @@ run: ({ message, client }) => {
   const newFight = new fight({
     client: client,
     message: message,
-    acceptMessage: 'Click to fight with ' + message.author,
+    acceptMessage: 'Click to fight with ' + message.author.tag,
     challenger: message.author,
     opponent: message.mentions.users.first()
   })

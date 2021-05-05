@@ -1,8 +1,8 @@
 const { Command } = require('cdcommands');
-const { MessageEmbed, Message } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { Aki } = require('aki-api');
 const { Collection } = require('mongoose');
-const emojis = [":thumbsup:", ":thumbsdown:", ":grey_question:", ":thinking:", ":rolling_eyes:", ":x:"];
+const emojis = ["👍", "👎", "❔", "🤔", "🙄", "❌"];
 
 
 module.exports = new Command({
@@ -48,7 +48,7 @@ run: async ({ message, args, client, prefix, language }) => {
             if (content == 'y' || content == 'yes')
             return message.channel.send(new MessageEmbed()
             .setColor('#00FF00')
-            .setTitle('Aha! Guess right one more time.')
+            .setTitle('Aha! Guessed right one more time.')
             .setDescription('I enjoyed playing with you!'));
             else
               return message.channel.send(new MessageEmbed()

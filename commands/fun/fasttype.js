@@ -1,6 +1,7 @@
 const { Command } = require('cdcommands');
 const { FastType } = require('weky');
 const leaderboard = require('../../schemas/leaderboardSchema.js')
+const txtgen = require('txtgen');
 
 module.exports = new Command({
 name: 'fasttype',

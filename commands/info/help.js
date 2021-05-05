@@ -10,7 +10,7 @@ module.exports = new Command({
   maxArgs: Infinity,
   usage: '{prefix}help',
   noDisable: false,
-  cooldown: 15000,
+  cooldown: 3000,
   category: 'Info',
   validate: new Validator({
     validate: ({ client, args }) => {
